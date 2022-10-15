@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "KoPubDotum";
+    src: url("~assets/font/KoPubDotumMedium.woff") format("woff");
+}
+@font-face {
+    font-family: "RIDIBatang";
+    src: url("~assets/font/RIDIBatang.woff") format("woff");
+}
+@mixin flex ($justify : center, $align: center, $direction: row){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+$black : #333;
+$white: #fefefe;
+$gray: #f5f5f5;

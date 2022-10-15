@@ -1,0 +1,365 @@
+@font-face {
+  font-family: "NotoSans KR";
+  src: url("/common_file/font/NotoSansKR-Regular-subset.otf") format("opentype");
+  font-display: swap;
+}
+*{
+  font-family: "NotoSans KR", "Malgun Gothic", "맑은 고딕",
+  "Apple SD Gothic Neo", "돋움", dotum, sans-serif;
+  /* Prevent font scaling in landscape */
+  letter-spacing: -1px;
+
+  -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+
+  -moz-text-size-adjust: none; /*Firefox*/
+
+  -ms-text-size-adjust: none; /*Ie*/
+
+  -o-text-size-adjust: none; /*old versions of Opera*/
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  width: 540px;
+  margin: 0 auto;
+  -webkit-tap-highlight-color:transparent;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+}
+.wrapper {
+  position: relative;
+  width: 540px;
+  height: auto;
+  overflow: hidden;
+  .nav-wrapper{
+    position: fixed;
+    width: 540px;
+    height: 60px;
+    border-bottom: 1px solid #fefefe;
+    z-index: 9999;
+    color: #fefefe;
+    .nav-container{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .logo{
+        position: absolute;
+        margin: auto;
+        top: 4px;
+        left: 0;
+        right: 0;
+      }
+      .menu-btn{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        right: 0;
+        margin-left: auto;
+        top: 0;
+        width: 60px;
+        height: 60px;
+        padding-right: 16px;
+        box-sizing: border-box;
+        
+        .nav-bar{
+          position: relative;
+          width: 30px;
+          height: 2px;
+          background-color: #fefefe;
+          margin: 3px 0;
+        }
+      }
+    }
+  }
+
+  // 슬라이드 공통
+  .swiper-slide {
+    width: 100%;
+    overflow: hidden;
+    .title-wrapper{
+      margin: 100px 0 50px;
+      h1, h2{
+        font-size: 50px;
+        font-weight: bold;
+        line-height: 58px;
+        color: #333;
+        margin-bottom: 30px;
+        transform: translateY(40px);
+        opacity: 0;
+        span{
+          position: relative;
+          
+          &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            bottom: 0px;
+            background-color: #ffae00;
+            transform: skew( -15deg ,0);
+            clip: rect(0,0,500px,0);
+            z-index: -1;
+            transition: all 0.6s;
+          }
+          &.show::before{
+            clip: rect(0,540px,500px,0);
+          }
+        }
+      }
+      p{
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+        color: #333;
+        margin-bottom: 30px;
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      a{
+        font-size: 24px;
+        font-weight: bold;
+        color: #0049e9;
+        border-bottom: 3px solid #0049e9;
+        line-height: 30px;
+        transform: translateY(40px);
+        opacity: 0;
+        .arrow{
+          width: 36px;
+          height: 20px;
+          background: url(../images/main_link_btn.png) no-repeat center;
+          background-size: contain;
+          display: inline-block;
+        }
+      }
+      strong{
+        font-size: 22px;
+        text-decoration: underline;
+        text-underline-position: under;
+        font-weight: bold;
+      }
+
+    }
+
+  }
+  // 첫번째 슬라이드
+  .swiper-slide[data-hash="slide1"]{
+    background: url(../images/bg1.png) no-repeat center;
+    background-size: cover;
+    .title-wrapper{
+      h1, p{color: #fefefe;}
+    }
+    .main-link{
+      display: flex;
+      flex-wrap: wrap;
+      width: 320px;
+      margin: 100px auto 0;
+      li{
+        width: 160px;
+        height: 190px;
+        border: 3px solid #fefefe;
+        box-sizing: border-box;
+        position: relative;
+        a{
+          color: #fefefe;
+          img{
+            opacity: 0;
+            width: 70%;
+            height: auto;
+            margin: 10px 0;
+          }
+        }
+        &:not(:first-child){
+          a img{
+            margin-top: 20px;
+          }
+        }
+        &:first-child{
+          border-radius: 30px 0 0 0;
+        }
+        &:last-child{
+          border-radius: 0 0 30px 0;
+        }
+        &:nth-child(odd){
+          border-right: 0;
+        }
+        &:nth-child(-n+2){
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  // 두번째 슬라이드
+  .swiper-slide[data-hash="slide2"]{
+    background: url(../images/bg2.png) no-repeat bottom;
+    background-size: contain;
+    .target-wrapper{
+      background: url(../images/line.png) no-repeat top;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding-top: 20px;
+      div{
+        display: flex;
+        width: 100%;
+        transform: translate(-20px, -10px);
+        opacity: 0;
+        p{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 160px;
+          height: 130px;
+          padding: 20px 0px;
+          border: 4px solid #c9c9c9;
+          box-shadow: 12px 12px 0 -4px #0049e9;
+          text-align: center;
+          box-sizing: border-box;
+          font-size: 18px;
+          font-weight: bold;
+          background-color: #fefefe;
+          line-height: 22px;
+        }
+        &:not(:first-child){
+          margin-top: -40px;
+        }
+        &:nth-child(odd){
+          justify-content: flex-start;
+          margin-left: 25px;
+        }
+        &:nth-child(even){
+          justify-content: flex-end;
+          margin-left: -34px;
+        }
+      }
+    }
+
+  }
+  // 세번째 슬라이드
+  .swiper-slide[data-hash="slide3"]{
+    background: url(../images/bg3.png) no-repeat center;
+    background-size: contain;
+    background-position: 0 70%;
+    .curriculum{
+      display: flex;
+      flex-direction: column;
+      margin-top: 80px;
+      li{
+        width: 100%;
+        font-size: 20px;
+        position: relative;
+        margin-bottom: 30px;
+        .curriculum-title{
+          opacity: 0;
+          font-weight: bold;
+          padding-left: 20px;
+          position: relative;
+          display: block;
+          margin-bottom: 10px;
+          font-size: 22px;
+          span::before{
+            content: '';
+            width: 8px;
+            height: 8px;
+            top: 6px;
+            margin-left: -20px;
+            background-color: #0049e9;
+            position: absolute;
+            border-radius: 50%;
+          }
+        }
+        .curriculum-text{
+          opacity: 0;
+          transform: translateX(50px);
+          color: #3a3a3a;
+          font-size: 20px;
+          p{
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+  // 네번째 슬라이드
+  .swiper-slide[data-hash="slide4"]{
+    background: url(../images/bg4.png) no-repeat center;
+    background-size: contain;
+    background-position: 0 70%;
+    .title-wrapper{
+      h2{
+        span{
+          font-size: 34px;
+          line-height: 40px;
+          font-weight: 500;
+          &.s_title::before{
+            width: 0;
+          }
+        }
+      }
+    }
+    .international{
+      ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+      }
+      ul.international-curriculum{
+        font-size: 22px;
+        margin:100px auto 40px;
+        li{
+          line-height: 24px;
+          padding: 4px 20px 8px;
+          opacity: 0;
+        }
+        li+li{
+          border-left: 2px solid #575757;
+        }
+      }
+      ul.consulting{
+        li{
+          color: #545454;
+          span{
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+          }
+        }
+        li+li{
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+   // 네번째 슬라이드
+   .swiper-slide[data-hash="slide5"]{
+    background: url(../images/bg5.png) no-repeat center;
+    background-size: contain;
+    background-position: 0 70%;
+    .title-wrapper{
+      h2, p{
+        color: #fefefe;
+      }
+      a{
+        color: #ffae00;
+        border-color: #ffae00;
+        .arrow{
+          background: url(../images/main_link_btn_y.png) no-repeat center;
+          background-size: contain;
+        }
+      }
+    }
+   }
+}

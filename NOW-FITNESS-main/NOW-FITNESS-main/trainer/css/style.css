@@ -1,0 +1,223 @@
+/* 상단 배경 */
+header{
+    background-image: url('../img/bg.jpg');
+}
+main{
+    position: relative;
+}
+/* 지점선택 */
+.select-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+}
+.now-center{
+    font-family:'KoPubDotumBold'; 
+    font-size: 30px;
+}
+.center-list{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 30px;
+}
+.center-list li{
+    border: 1px solid #b1b1b1;
+    padding: 5px 15px;
+    border-radius: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #616161;
+}
+.center-list li.active{
+    background-color: #ffac13;
+    border-color: #ffac13;
+    color: #fefefe;
+}
+
+/* 트레이너 목록 */
+.trainer-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    max-width: 1100px;
+    margin-bottom: 200px;
+}
+.trainer-box{
+    width: 300px;
+    height: 450px;
+    margin: 10px 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.trainer-box img{
+    height: 100%;
+}
+.trainer-box:hover .info{
+    transform: translateY(0);
+}
+.info{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000008e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+}
+.info h4{
+    font-family:'KoPubDotumBold'; 
+    color: #fefefe;
+    font-size: 21px;
+    font-weight: 600;
+}
+.info p{
+    color: #fefefe;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+}
+.info div{
+    background-color: #fefefe;
+    width: 20px;
+    height: 2px;
+    margin: 20px 0;
+}
+.info button{
+    background: none;
+    border: 1px solid #fefefe;
+    color: #fefefe;
+    padding: 10px 20px;
+    margin-top: 50px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.info button:hover{
+    border: 1px solid #ffe400;
+    color: #ffe400;
+}
+
+/* 팝업 -트레이너 정보 자세히보기 */
+.popup-wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #0000008e;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 99999;
+}
+.popup{
+    background-color: #fefefe;
+    padding: 30px 40px;
+    width: 94%;
+    max-width: 800px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+.detail-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.detail-top .logo{
+    width: 100px;
+}
+.detail-top .close{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.detail-top .close img{
+    width: 20px;
+    cursor: pointer;
+}
+.trainer-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.img-box, .txt-box{
+    width: 45%;
+}
+.img-box img{
+    width: 100%;
+}
+.txt-box{
+    margin-left: 40px;
+}
+.txt-box h3{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    border-bottom: 2px solid #ffd413;
+}
+.txt-box p{
+    margin: 20px 0;
+    line-height: 24px;
+    font-weight: 600;
+    font-size: 16px;
+}
+.txt-box ul li{
+    font-size: 14px;
+    line-height: 20px;
+}
+.txt-box ul li::before{
+    content: '- ';
+}
+
+
+@media screen and (max-width: 1060px){
+    .trainer-box {
+        width: 250px;
+        height: 370px;
+    }
+}
+@media screen and (max-width: 910px){
+    .trainer-box {
+        width: 220px;
+        height: 320px;
+        margin: 10px;
+    }
+    
+}
+@media screen and (max-width: 600px){
+    .info button{
+        margin-top: 20px;
+    }
+    .popup{
+        padding: 20px;
+    }
+    .trainer-box {
+        width: 170px;
+        height: 240px;
+        margin: 4px;
+    }
+    .trainer-detail{
+        flex-direction: column;
+    }
+    .img-box,
+    .txt-box{
+        margin-left: 0;
+        width: 65%;
+    }
+}
+
