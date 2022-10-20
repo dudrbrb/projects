@@ -8,7 +8,7 @@
                 <li >사업자등록번호 : 502-07-65866 2020</li>
                 <li>주소 : 대구광역시 동구 동대구로 523 3층 307호</li>
             </ul>
-            <p>copyright(c) 2022 tuefl . All rights reserved</p>
+            <p>copyright(c) 2022 twople . All rights reserved</p>
         </div>
     </section>
 </template>

@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "KoPubDotum";
+    src: url("~assets/font/KoPubDotumMedium.woff") format("woff");
+}
+@font-face {
+    font-family: "HelveticaBold";
+    src: url("~assets/font/HelveticaNeueLTStd-Bd.woff") format("woff");
+}
+@font-face {
+    font-family: "HelveticaHoriz";
+    src: url("~assets/font/HelveticaNeueLTStd-MdCn.woff") format("woff");
+}
+@font-face {
+    font-family: "Helvetica";
+    src: url("~assets/font/HelveticaNeueLTStd-Roman.woff") format("woff");
+}
+@mixin flex ($justify : center, $align: center, $direction: row){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+
+$black : #333;
+$white: #fefefe;
+$gray: #f5f5f5;
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "KoPubDotum", "Helvetica", "Malgun Gothic", "맑은 고딕",
+    "Apple SD Gothic Neo", "돋움", dotum, sans-serif;
+    /* Prevent font scaling in landscape */
+    -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+    -moz-text-size-adjust: none; /*Firefox*/
+    -ms-text-size-adjust: none; /*Ie*/
+    -o-text-size-adjust: none; /*old versions of Opera*/
+    outline: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    word-break: keep-all;
+    &.en{
+      font-family: "Helvetica" !important;
+      font-weight: 100;
+    }
+    &.bold{
+      font-family: "HelveticaBold";
+      font-weight: 400;
+    }
+    &.horiz{
+      font-family: "HelveticaHoriz";
+      font-weight: 400;
+    }
+}
+ul, li{
+  margin-left: 0;
+  padding-left: 0;
+}
+li, a{
+    color: #333;
+    list-style: none;
+}
+a{
+  cursor: pointer;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: "RIDIBatang", "Malgun Gothic", "맑은 고딕",
+  "Apple SD Gothic Neo", "돋움", dotum, sans-serif;
+  font-size: 24px;
+}
+.container{
+  max-width: 3000px !important;
+  position: relative;
+  padding: 0;
+}
+nav + .container{
+  padding-top: 70px;
+}
+

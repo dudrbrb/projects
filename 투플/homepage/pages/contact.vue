@@ -14,25 +14,25 @@
                 </div>
                 
                 <div class="form">
-                    <form ref="form" @submit.prevent="sendEmail">
+                    <form ref="form" @submit.prevent="sendEmail($event)">
                         <div class="input-box">
                             <label>성함</label>
-                            <v-text-field label="Name" outlined  name="user_name"></v-text-field>
+                            <v-text-field label="Name" outlined  name="userName" ></v-text-field>
                         </div>
                         <div class="input-box">
                             <label>이메일</label>
-                            <v-text-field label="Tel"  outlined  name="user_email"></v-text-field>
+                            <v-text-field label="E-mail"  outlined  name="userTel" ></v-text-field>
                         </div>
                         <div class="input-box">
                             <label>연락처</label>
-                            <v-text-field label="Tel"  outlined  name="user_tel"></v-text-field>
+                            <v-text-field label="Tel"  outlined  name="userEmail" ></v-text-field>
                         </div>
                         <div class="input-box">
                             <label>문의내용</label>
-                            <v-textarea label="Contents"  outlined  name="message"></v-textarea>
+                            <v-textarea label="Contents"  outlined  name="message" ></v-textarea>
                         </div>
+                        <v-btn depressed elevation="2" rounded dark > <input type="submit" value="문의 남기기"></v-btn>
                     </form>
-                    <v-btn depressed elevation="2" rounded dark type="submit">문의 남기기</v-btn>
 
                     <p>문의를 남겨주시면 담당자의 이메일로 발송됩니다.<br/>
                         이메일 확인 후, 입력하신 번호로 연락을 드리겠습니다. 감사합니다 :)
@@ -134,10 +134,14 @@ $gray: #f5f5f5;
             button{
                 margin-left: 100px;
                 border-radius: 30px;
-                padding: 0 30px;
                 height: 60px;
                 span{
                     font-size: 20px;
+                }
+                input{
+                    padding: 0 30px;
+                    height: 60px;
+                    width: 100%;
                 }
             }
         }
@@ -216,39 +220,16 @@ export default {
         }
     },
     mounted(){
-        setTimeout(() => {
-            this.addMotion();
-        }, 300);
-        window.addEventListener('scroll', this.addMotion);
     },
     methods:{
-        addMotion(){
-             const io = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    // entry의 target으로 DOM에 접근합니다.
-                    const $target = entry.target;
-
-                    // 화면에 노출 상태에 따라 해당 엘리먼트의 class를 컨트롤 합니다.
-                    if (entry.isIntersecting) {
-                        $target.classList.add("act");
-                    }
-                });
-            });
-            const $items = this.$el.querySelectorAll(".item");
-            $items.forEach((item) => {
-                io.observe(item);
-            });
-
-        },
-        sendEmail() {
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this.$refs.form, 'YOUR_PUBLIC_KEY')
+        sendEmail(e){
+            emailjs.sendForm('twople', 'twople-template', e.target, '0LwGwVxuSI4Z3XWi5')
             .then((result) => {
-                console.log('SUCCESS!', result.text);
+                console.log('SUCCESS!', result.status, result.text);
             }, (error) => {
-                console.log('FAILED...', error.text);
+                console.log('FAILED...', error);
             });
         }
-            
     }
 }
 </script>
