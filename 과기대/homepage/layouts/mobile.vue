@@ -1,6 +1,6 @@
 <template>
     <v-app>
-      <TopNav  v-if="$route.path !== '/mb/main'"/>
+      <TopNav/>
       <Nuxt id="page"/>
       <div class="scroll-up" @click="scrollTop" v-if="$route.path !== '/mb/intro'"></div>
     </v-app>
@@ -12,6 +12,9 @@
   width: 100%;
   position: relative;
   padding: 0;
+  ul{
+     padding-left: 0;
+  }
 }
 nav + .container{
   padding-top: 130px ;

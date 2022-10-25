@@ -1,5 +1,5 @@
 <template>
-    <div class="container works">
+    <div class="container works pc">
         <section id="category">
             <ul>
                 <li @click="selectCategory('ALL')" :class="['horiz', {act: nowCate == 'ALL'}]">ALL</li>
@@ -37,7 +37,7 @@
 </template>
 
 <style lang='scss'>
-.works{
+.works.pc{
     background-color: #fefefe;
     #category{
         width: 100%;

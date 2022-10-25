@@ -1,5 +1,5 @@
 <template>
-    <div class="container place">
+    <div class="container place pc">
         <section id="category">
             <b v-if="nowSpot !== null">{{spotName}} <span class="bold">{{spotEngName}} </span></b>
             <ul>
@@ -51,7 +51,7 @@
 </template>
 
 <style lang='scss'>
-.place{
+.place.pc{
     background-color: #fefefe;
     #category{
         width: 100%;

@@ -1,5 +1,5 @@
 <template>
-    <div class="container store">
+    <div class="container store pc" >
         <div class="buy-button">
             <div class="text">
                 <img :src="require('@/assets/img/pc/store/arrow.png')">
@@ -10,7 +10,7 @@
 </template>
 
 <style lang='scss'>
-.store{
+.store.pc{
     background-color: #D9D9D9;
     width: 100%;
     height: 100%;

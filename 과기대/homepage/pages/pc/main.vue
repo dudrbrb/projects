@@ -1,5 +1,5 @@
 <template>
-    <div class="container main">
+    <div class="container main pc">
         <section id="video"></section>
         <section id="infomation">
             <div class="title">
@@ -251,7 +251,7 @@
 </template>
 
 <style lang='scss'>
-.main{
+.main.pc{
     width: 100%;
     height: 100%;
     background-color: #000;

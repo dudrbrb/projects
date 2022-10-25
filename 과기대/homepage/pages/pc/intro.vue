@@ -1,5 +1,5 @@
 <template>
-    <div class="container intro">
+    <div class="container intro pc">
         <section class="video-wrapper">
 
             <div class="gradient"></div>
@@ -31,7 +31,7 @@
 </template>
 
 <style lang='scss'>
-.intro{
+.intro.pc{
     width: 100%;
     height: 100%;
     background: #F5FF33;

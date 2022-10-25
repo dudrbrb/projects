@@ -1,5 +1,5 @@
 <template>
-    <div class="container message">
+    <div class="container message pc">
         <section id="list">
             <ul>
                 <li v-for="(msg, idx) in messageList" :key="`message${idx}`" v-if="idx >= (6*(nowPage-1)) && idx < (6*nowPage) " >
@@ -32,7 +32,7 @@
 
 <style lang='scss'>
 $yellow: #F5FF33;
-.message{
+.message.pc{
     width: 100%;
     height: 100%;
     background-color: #000;

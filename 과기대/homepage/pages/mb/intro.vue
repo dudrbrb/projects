@@ -1,5 +1,5 @@
 <template>
-    <div class="container intro">
+    <div class="container intro mb">
         <section class="video-wrapper">
             <img :src="require('@/assets/img/mb/intro/bg.png')">
 
@@ -25,7 +25,7 @@
 </template>
 
 <style lang='scss'>
-.intro{
+.intro.mb{
     width: 100%;
     height: 100%;
     background: #F5FF33;
@@ -79,7 +79,7 @@
 <script>
 export default {
     name: 'intro',
-    layout: 'modile',
+    layout: 'mobile',
     data(){
         return{
         }
