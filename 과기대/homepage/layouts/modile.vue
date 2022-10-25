@@ -1,20 +1,22 @@
 <template>
     <v-app>
-      <TopNav  v-if="$route.path !== '/pc/main'"/>
+      <TopNav  v-if="$route.path !== '/mb/main'"/>
       <Nuxt id="page"/>
-      <div class="scroll-up" @click="scrollTop" v-if="$route.path !== '/pc/intro'"></div>
+      <div class="scroll-up" @click="scrollTop" v-if="$route.path !== '/mb/intro'"></div>
     </v-app>
 </template>
 
 <style lang="scss">
-.container{
-  max-width: 3000px !important;
+#app, .container{
+  max-width: 540px !important;
+  width: 100%;
   position: relative;
   padding: 0;
 }
 nav + .container{
-  padding-top: 70px;
+  padding-top: 130px ;
 }
+
 .scroll-up{
     width: 40px;
     height: 40px;
@@ -28,10 +30,10 @@ nav + .container{
 }
 </style>
 <script>
-import TopNav from '@/components/Nav.vue';
+import TopNav from '@/components/NavMb.vue';
 
 export default {
-  name: 'DefaultLayout',
+  name: 'mobile',
   components: {TopNav},
   data () {
     return {
@@ -39,7 +41,6 @@ export default {
   },
   methods:{
     scrollTop(){
-        // window.scrollTo(0, 0)
         var target = this.$el.querySelector('.container');
         target.scrollIntoView({behavior: "smooth", block: "start"}) 
     }

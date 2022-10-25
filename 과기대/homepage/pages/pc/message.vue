@@ -2,7 +2,7 @@
     <div class="container message">
         <section id="list">
             <ul>
-                <li v-for="(msg, idx) in messageList" :key="`message${idx}`" v-if="idx >= (6*(nowPage-1)) && idx < (6*nowPage) ">
+                <li v-for="(msg, idx) in messageList" :key="`message${idx}`" v-if="idx >= (6*(nowPage-1)) && idx < (6*nowPage) " >
                     <b>{{msg.writer}}</b>
                     <p>{{msg.message}}
                         <span>{{msg.date}} / {{msg.time}}</span>
@@ -66,6 +66,9 @@ $yellow: #F5FF33;
                     font-size: 18px;
                     line-height: 214%;
                     margin-bottom: 0;
+                    width: 100%;
+                    height: auto;
+                    word-break: break-all
                 }
                 span{
                     font-size: 15px;
@@ -169,17 +172,12 @@ export default {
                 message: null,
                 date: null,
                 time: null
-            }
+            },
         }
     },
     async created(){
         // 학생 회원 목록 불러오기
-        await this.$axios.$get(`/api/list/message`).then(datas =>{
-            this.messageList = datas;
-            this.page = Math.ceil(this.messageList.length / 6);
-        }).catch((error)=>{
-            console.log(error.data)
-        });
+        this.getMessages()
     },
 
     mounted(){
@@ -217,19 +215,26 @@ export default {
             if(this.sendData.message == null) return alert('방명록을 작성해주세요.')
             
             this.getDay();
+            setTimeout(() => {
+                this.getMessages()
+                this.sendData.writer = null;
+                this.sendData.message = null;
+            }, 300);
             
             await this.$axios.post('/api/add/message', this.sendData)
-            .then( (response) => {
-                this.$axios.$get(`/api/list/message`).then(datas =>{
-                    this.messageList = datas;
-                    this.page = Math.ceil(this.messageList.length / 6);
-                }).catch((error)=>{
-                    console.log(error.data)
-                });
-            }).catch( (error) => {
-                console.log(error);
+            .then((response) => {
+            }).catch((error) => { 
+                console.log(error)
             });
         },
+        getMessages(){
+            this.$axios.$get(`/api/list/message`).then(datas =>{
+                this.messageList = datas;
+                this.page = Math.ceil(this.messageList.length / 6);
+            }).catch((error)=>{
+                console.log(error.data)
+            });
+        }
 
     }
 }

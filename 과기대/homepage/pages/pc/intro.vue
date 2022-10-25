@@ -15,8 +15,8 @@
             </div>
             <div>
                 <ul>
-                    <li class="en">EOULTECH DEPT. OF DESIGN</li>
-                    <li class="en">NDUSTRIAL DESIGN PROGRAM </li>
+                    <li class="en">SEOULTECH DEPT. OF DESIGN</li>
+                    <li class="en">INDUSTRIAL DESIGN PROGRAM </li>
                     <li class="en">40TH GRADUATION EXHIBITION SHOW</li>
                 </ul>
             </div>

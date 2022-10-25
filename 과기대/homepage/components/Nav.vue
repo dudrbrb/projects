@@ -2,7 +2,7 @@
     <nav class="top-nav" >
         <div class="logo">
             <nuxt-link :to="'/pc/main'">
-                <img :src="require('@/assets/img/nav/logo.png')" alt="logo">
+                <img :src="require('@/assets/img/logo.png')" alt="logo">
             </nuxt-link>
         </div>
         <ul>

@@ -11,6 +11,10 @@
     src: url("~assets/font/HelveticaNeueLTStd-MdCn.woff") format("woff");
 }
 @font-face {
+    font-family: "HelveticaHorizLight";
+    src: url("~assets/font/HelveticaNeueLTProLtCn.woff") format("woff");
+}
+@font-face {
     font-family: "Helvetica";
     src: url("~assets/font/HelveticaNeueLTStd-Roman.woff") format("woff");
 }
@@ -56,6 +60,10 @@ $gray: #f5f5f5;
       font-family: "HelveticaHoriz";
       font-weight: 400;
     }
+    &.horiz-lt{
+      font-family: "HelveticaHorizLight";
+      font-weight: 400;
+    }
 }
 ul, li{
   margin-left: 0;
@@ -73,12 +81,3 @@ h1, h2, h3, h4, h5, h6{
   "Apple SD Gothic Neo", "돋움", dotum, sans-serif;
   font-size: 24px;
 }
-.container{
-  max-width: 3000px !important;
-  position: relative;
-  padding: 0;
-}
-nav + .container{
-  padding-top: 70px;
-}
-
