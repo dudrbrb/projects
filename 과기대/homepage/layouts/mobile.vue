@@ -1,13 +1,14 @@
 <template>
     <v-app>
       <TopNav/>
-      <Nuxt id="page"/>
-      <div class="scroll-up" @click="scrollTop" v-if="$route.path !== '/mb/intro'"></div>
+      <Nuxt id="page" class="mb"/>
+      <!-- <div class="scroll-up" @click="scrollTop" v-if="$route.path !== '/mb/intro'"></div> -->
+      <Footer v-if="$route.path !== '/mb/intro' && $route.path !== '/mb/message'"></Footer>
     </v-app>
 </template>
 
 <style lang="scss">
-#app, .container{
+.container.mb{
   max-width: 540px !important;
   width: 100%;
   position: relative;
@@ -16,7 +17,7 @@
      padding-left: 0;
   }
 }
-nav + .container{
+nav + .container.mb{
   padding-top: 130px ;
 }
 
@@ -26,18 +27,19 @@ nav + .container{
     background: url('@/assets/img/top.png') no-repeat center;
     background-size: contain;
     position: fixed;
-    bottom: 50px;
-    right: 30px;
+    bottom: 30px;
+    right: 17px;
     z-index: 999;
     cursor: pointer;
 }
 </style>
 <script>
 import TopNav from '@/components/NavMb.vue';
+import Footer from '@/components/FooterMb.vue';
 
 export default {
   name: 'mobile',
-  components: {TopNav},
+  components: {TopNav, Footer},
   data () {
     return {
     }

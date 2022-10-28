@@ -1,6 +1,6 @@
 <template>
     <div class="container intro mb">
-        <section class="video-wrapper">
+        <section class="video-wrapper" @click="$router.push({ path: '/mb/main' });">
             <img :src="require('@/assets/img/mb/intro/bg.png')">
 
         </section>

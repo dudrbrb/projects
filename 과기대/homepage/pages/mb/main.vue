@@ -75,7 +75,7 @@
                 </div>
                 <div class="track-box">
                     <b class="horiz">TRACK C <span class="horiz">(ENVIRONMENT</span></b>
-                    <p>다양한 디지털 제품의 통합적 기획 및 개발과정을 학습하고,  문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.다양한 디지털 제품의 통합적 기획 및 개발과정을  학습하고, 문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.</p>
+                    <p>다양한 디지털 제품의 통합적 기획 및 개발과정을 학습하고, 문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.다양한 디지털 제품의 통합적 기획 및 개발과정을 학습하고, 문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.</p>
                     <div class="section-box">
                         <div>
                             <b class="horiz">C1 <span class="horiz">(FURNITURE</span></b>
@@ -200,7 +200,6 @@
                         <li><b>주서형</b></li>
                         <li class="over"><b>차이슈이</b></li>
                         <li><b>채효림</b></li>
-                        <li><b>최도현</b></li>
                         <li><b>최동준</b></li>
                         <li><b>최동현</b></li>
                         <li><b>최민경</b></li>
@@ -208,7 +207,6 @@
                         <li><b>최지혜</b></li>
                         <li><b>하상윤</b></li>
                         <li><b>허준석</b></li>
-                        <li><b>아브드렙 무하마드 보부르</b></li>
                     </ul>
                 </div>
 
@@ -353,6 +351,7 @@
             }
         }
         &#credits{
+            margin-bottom: 50px;
             .contents{
                 padding: 0 15px;
 
@@ -392,9 +391,6 @@
                                 &.over{
                                     margin-left: -7px;
                                 }
-                                &:last-child{
-                                    width: 100%;
-                                }
                             }
                         }
                     }
@@ -424,7 +420,7 @@
 
 <script>
 export default {
-    name: 'main',
+    name: 'about',
     layout: 'mobile',
     data(){
         return{

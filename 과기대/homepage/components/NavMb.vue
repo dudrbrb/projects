@@ -33,7 +33,9 @@
     max-width: 540px;
     padding: 20px 15px ;
     background-color: #000;
-
+    margin:0 auto;
+    left: 0;
+    right: 0;
     .logo{
         margin-top: auto;
         img{
@@ -75,11 +77,13 @@
     ul{
         position: fixed;
         top: 130px;
-        left: 0;
         width: 100%;
         max-width: 540px;
         height: 100%;
         background-color: #000;
+        margin:0 auto;
+        left: 0;
+        right: 0;
         li{
             a{
                 color: #fff;
@@ -122,6 +126,7 @@ export default {
     watch:{
         '$route' (to, from) {
 			this.menuOpen = false;
+            this.getPath();
 		}
     },
     methods: {
