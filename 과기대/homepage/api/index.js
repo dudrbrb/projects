@@ -54,16 +54,19 @@ app.delete('/delete/message', (req, res) => {
 
 // DB 수정하기
 app.put('/edit/message', (req, res) => {
-    db.collection('message').updateOne(
-        {_id: parseInt(req.body._id)},
-        {$set:{  
-            writer: '',
-            message: ''
-        }},
-        (err, 결과) => {
-            if(err) console.log(err)
-        }
-    )
+    // db.collection('message').updateOne(
+    //     {_id: parseInt(req.body._id)},
+    //     {$set:{  
+    //         writer: '',
+    //         message: '',
+    //         date: req.body.date,
+    //         time: req.body.time
+    //     }},
+    //     (err, 결과) => {
+    //         if(err) console.log(err)
+    //     }
+    // )
+    console.log(req.body)
 });
 
 
