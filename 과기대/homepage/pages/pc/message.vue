@@ -152,7 +152,7 @@ $yellow: #F5FF33;
         position: absolute;
         width: 100%;
         bottom: 25px;
-        left: 50%;
+        @include flex();
 
     }
 }
@@ -182,6 +182,13 @@ export default {
     mounted(){
     },
     watch:{
+        byte:{
+            handler(e){
+                if(e > 300){
+                    this.sendData.message.substr(0, 300);
+                }
+            }
+        },
     },
     methods:{
         checkLength(v){
@@ -218,6 +225,7 @@ export default {
                 this.getMessages()
                 this.sendData.writer = null;
                 this.sendData.message = null;
+                this.byte = 300;
             }, 300);
             
             await this.$axios.post('/api/add/message', this.sendData)

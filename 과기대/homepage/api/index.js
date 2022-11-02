@@ -2,10 +2,11 @@ const MongoClient = require('mongodb').MongoClient; // mongoDB호출
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override')
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 app.use(bodyParser.json());
-
 
 var db;
 MongoClient.connect('mongodb+srv://user:user123@cluster0.zo1gplg.mongodb.net/?retryWrites=true&w=majority', (err, client) => {
@@ -26,48 +27,54 @@ app.get('/list/message', (req, res) => {
 
 // 새로운 DB 추가하기
 app.post('/add/message', (req, res) => {
-    var messageData = {
-        writer: req.body.writer,
-        message: req.body.message,
-        date: req.body.date,
-        time: req.body.time
-    }
-    console.log(req.body)
+    db.collection('count').findOne({title: 'message'}, (countErr, countRes)=>{
+        console.log(countRes)
+        var messageData = {
+            _id: countRes.total, 
+            writer: req.body.writer,
+            message: req.body.message,
+            date: req.body.date,
+            time: req.body.time
+        }
 
-    db.collection('message').insertOne(messageData, (err, result) => {
-        if(err) return console.log(err)
-        if(result) console.log(result)
+        db.collection('message').insertOne(messageData, (err, res) => {
+            db.collection('count').updateOne({title: 'message'}, {$inc: {total: 1}}, (ctErr, ctRes) => {
+                if(ctErr) return console.log(ctErr)
+			})
+            
+            if(err) return console.log(err)
+            if(res) console.log(res)
+        });
     });
 });
 
 
-// DB 삭제하기
-app.delete('/delete/message', (req, res) => {
-    var deleteData = {_id: parseInt(req.body.selectData)}
 
-    db.collection('message').deleteOne(deleteData, (err, result) => {
+// DB 수정하기
+app.post('/edit/message', (req, res) => {
+    db.collection('message').updateMany(
+        {_id: parseInt(req.body._id)},
+        {$set:{  
+            writer: req.body.writer,
+            message: req.body.message,
+            date: req.body.date,
+            time: req.body.time
+        }},
+        (err, 결과) => {
+            console.log(결과)
+            if(err) console.log(err)     
+        }
+    )
+});
+
+// DB 삭제하기
+app.get('/delete/message/:id', (req, res) => {
+    db.collection('message').deleteOne({_id:parseInt(req.params.id)}, (err, result) => {
         if(err) console.log(err)
         res.status(200).send({message: '성공했습니다'});
     })
 });
 
-
-// DB 수정하기
-app.put('/edit/message', (req, res) => {
-    // db.collection('message').updateOne(
-    //     {_id: parseInt(req.body._id)},
-    //     {$set:{  
-    //         writer: '',
-    //         message: '',
-    //         date: req.body.date,
-    //         time: req.body.time
-    //     }},
-    //     (err, 결과) => {
-    //         if(err) console.log(err)
-    //     }
-    // )
-    console.log(req.body)
-});
 
 
 module.exports = {

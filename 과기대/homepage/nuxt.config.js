@@ -12,7 +12,7 @@ export default {
     titleTemplate: '%s - homepage',
     title: 'homepage',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ko'
     },
     meta: [
       { charset: 'utf-8' },

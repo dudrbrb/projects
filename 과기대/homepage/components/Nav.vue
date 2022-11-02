@@ -10,6 +10,7 @@
             <li><nuxt-link class="horiz" :to="'/pc/message'">MESSAGE</nuxt-link></li>
             <li><nuxt-link class="horiz" :to="'/pc/place'">PLACE</nuxt-link></li>
             <li><nuxt-link class="horiz" :to="'/pc/store'">STORE</nuxt-link></li>
+            <li><a class="horiz" :href="'https://www.instagram.com/snad_id/'" target="_blank">INSTAGRAM</a></li>
         </ul>
         <img :src="require('@/assets/img/gr-top.png')" class="gradient">
     </nav>

@@ -12,7 +12,7 @@
                     </div>
                     <div class="btn-box">
                         <div class="edit" @click="openPopup('edit', msg)">수정하기</div>
-                        <div class="delete">삭제하기</div>
+                        <div class="delete" @click="openPopup('delete', msg)">삭제하기</div>
                     </div>
                 </li>
             </ul>
@@ -24,8 +24,8 @@
             
         </section>
         <section id="popup" v-if="popup.open">
-            <article id="form" v-if="popup.edit && selectData !== null">
-                <input type="text" name="writer" placeholder="이름" v-model="selectData.writer">
+            <article id="form" v-if="popup.edit == true && selectData !== null">
+                <input type="text" name="writer" v-model="selectData.writer">
                 <div class="textarea-box">
                     <textarea name="message" v-model="selectData.message" id="message" cols="30" rows="10" placeholder="방명록을 작성해주세요." @input="checkLength($event.target.value)" maxlength="300"> </textarea>
                     <span>{{byte}} Byte</span>
@@ -33,6 +33,13 @@
                 <div class="btn-box">
                     <div class="edit-ok" @click="editMessage">수정하기</div>
                     <div class="close" @click="closePopup('edit')">닫기</div>
+                </div>
+            </article>
+            <article id='alert' v-if="popup.delete == true && selectData !== null">
+                <p><b>{{selectData.writer}}</b>님의 메세지를 삭제하시겠습니까? </p>
+                <div class="btn-box">
+                    <div class="delete-ok" @click="deleteMessage(selectData._id)">삭제하기</div>
+                    <div class="close" @click="closePopup('delete')">닫기</div>
                 </div>
             </article>
         </section>
@@ -44,6 +51,7 @@
 
 <style lang='scss'>
 $blue: #3392ff;
+$red: rgb(255, 66, 66);
 .admin.pc{
     width: 100%;
     height: 100%;
@@ -116,8 +124,8 @@ $blue: #3392ff;
                             border-color: rgb(66, 230, 255);
                         }
                         &.delete{
-                            color: rgb(255, 66, 66);
-                            border-color: rgb(255, 66, 66);
+                            color: $red;
+                            border-color: $red;
                         }
                     }
 
@@ -186,7 +194,6 @@ $blue: #3392ff;
             input, textarea{
                 border: 1px solid #333;
                 padding: 10px;
-                color: #fff;
             }
             input{
                 margin-bottom: 20px;
@@ -215,13 +222,27 @@ $blue: #3392ff;
             }
     
         }
+        #alert{
+            @include flex(flex-start, flex-start, column);
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            p, b{
+                color: #000;
+            }
+            .delete-ok{
+                background-color: $red;
+            }
+    
+        }
     }
     footer{
         position: absolute;
         width: 100%;
         bottom: 25px;
-        left: 50%;
-
+        @include flex();
     }
 }
 </style>
@@ -242,12 +263,6 @@ export default {
                 edit: false,
                 delete: false
             },
-            sendData: {
-                writer: null,
-                message: null,
-                date: null,
-                time: null
-            },
         }
     },
     async created(){
@@ -257,6 +272,13 @@ export default {
     mounted(){
     },
     watch:{
+        byte:{
+            handler(e){
+                if(e > 300){
+                    this.selectData.message.substr(0, 300);
+                }
+            }
+        },
     },
     methods:{
         checkLength(v){
@@ -279,43 +301,40 @@ export default {
             if(day < 10){ day = '0' + day }
         
             // 최종 포맷 (ex - '2021-10-08')
-            this.sendData.date = year + '-' + month + '-' + day;
-            this.sendData.time = hour + ' : ' + min + " '" + sec + " ''" + msec;
-            
-            // this.messageList.unshift(this.sendData)
-        },
-        async sendMessage(){
-            if(this.sendData.writer == null) return alert('이름을 입력해주세요.')
-            if(this.sendData.message == null) return alert('방명록을 작성해주세요.')
-            
-            this.getDay();
-            setTimeout(() => {
-                this.getMessages()
-                this.sendData.writer = null;
-                this.sendData.message = null;
-            }, 300);
-            
-            await this.$axios.post('/api/add/message', this.sendData)
-            .then((response) => {
-            }).catch((error) => { 
-                console.log(error)
-            });
+            this.selectData.date = year + '-' + month + '-' + day;
+            this.selectData.time = hour + ' : ' + min + " '" + sec + " ''" + msec;
         },
         async editMessage(){
-            if(this.sendData.writer == null) return alert('이름을 입력해주세요.')
-            if(this.sendData.message == null) return alert('방명록을 작성해주세요.')
+            if(this.selectData.writer == null) return alert('이름을 입력해주세요.')
+            if(this.selectData.message == null) return alert('방명록을 작성해주세요.')
             
             this.getDay();
             setTimeout(() => {
-                this.editPopup = false
+                this.closePopup('edit');
             }, 300);
-            
-            await this.$axios.post(`/api/edit/message`+ this.selectData._id , this.sendData).then( (response) => {
+
+            await this.$axios.post(`/api/edit/message`, this.selectData)
+            .then( (response) => {
                 console.log(response);
             }).catch( (error) => {
                 console.log(error);
             });
-            this.cancle('ok');
+        },
+        async deleteMessage(id){
+            await this.$axios.$get(`/api/delete/message/`+ id).then(data =>{
+                this.closePopup('delete');
+            }).catch((error)=>{
+                console.log(error.data)
+            });
+
+            this.$axios.$get(`/api/list/message`).then(datas =>{
+                this.messageList = datas;
+                this.page = Math.ceil(this.messageList.length / 6);
+            }).catch((error)=>{
+                console.log(error.data)
+            });
+
+            
         },
         getMessages(){
             this.$axios.$get(`/api/list/message`).then(datas =>{
