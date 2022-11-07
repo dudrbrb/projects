@@ -139,6 +139,15 @@ export default {
     mounted(){
 
     },
+    watch:{
+        byte:{
+            handler(e){
+                if(e > 300){
+                    this.selectData.message.substr(0, 300);
+                }
+            }
+        },
+    },
     methods:{
         checkLength(v){
             this.byte = 300 - v.length;
@@ -171,8 +180,9 @@ export default {
             
             this.getDay();
             setTimeout(() => {
-                   this.sendData.writer = null;
+                this.sendData.writer = null;
                 this.sendData.message = null;
+                this.byte = 300;
                 this.getMessages()
              
             }, 300);

@@ -12,7 +12,7 @@ export default {
     titleTemplate: '%s - homepage',
     title: 'homepage',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ko'
     },
     meta: [
       { charset: 'utf-8' },
@@ -39,15 +39,18 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    'nuxt-compress',
-    '@nuxtjs/vuetify',
-    '@nuxtjs/style-resources',
+    // 'nuxt-compress',
+    // '@nuxtjs/vuetify',
+    // '@nuxtjs/style-resources',
   ],
-
+  
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/device',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-compress',
+    '@nuxtjs/vuetify',
+    '@nuxtjs/style-resources',
   ],
   styleResources: {
     scss: [
