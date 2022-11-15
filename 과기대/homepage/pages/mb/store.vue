@@ -2,7 +2,7 @@
     <div class="container store mb">
         <section>
             <nuxt-link :to='"/mb/store"'>
-                <img :src="require('@/assets/img/mb/store/btn.png')" >
+                <img :src="require('@/assets/img/mb/store/btn.svg')" >
             
             </nuxt-link>
         </section>
@@ -18,7 +18,7 @@
         width: 100%;
         height: 100%;
         position: relative;
-        background: url('@/assets/img/mb/store/x-bg.png') no-repeat center;
+        background: url('@/assets/img/mb/store/x-bg.svg') no-repeat center;
         background-size: cover;
         a{
             position: absolute;

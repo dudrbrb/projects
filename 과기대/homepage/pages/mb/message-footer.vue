@@ -177,25 +177,25 @@ export default {
                 this.sendData.message = null;
             }, 300);
             
-            await this.$axios.post('/api/add/message', this.sendData)
-            .then((response) => {
-            }).catch((error) => { 
-                console.log(error)
-            });
+            // await this.$axios.post('/api/add/message', this.sendData)
+            // .then((response) => {
+            // }).catch((error) => { 
+            //     console.log(error)
+            // });
         },
         getMessages(){
-            this.$axios.$get(`/api/list/message`).then(datas =>{
-                this.messageList = datas.reverse();
-                this.page = Math.ceil(this.messageList.length / 6);
+            // this.$axios.$get(`/api/list/message`).then(datas =>{
+            //     this.messageList = datas.reverse();
+            //     this.page = Math.ceil(this.messageList.length / 6);
                 
-                setTimeout(() => {
-                    var list = this.$el.querySelector('#list ul'); 
-                    list.scrollTop = list.scrollHeight;
-                }, 300);
+            //     setTimeout(() => {
+            //         var list = this.$el.querySelector('#list ul'); 
+            //         list.scrollTop = list.scrollHeight;
+            //     }, 300);
 
-            }).catch((error)=>{
-                console.log(error.data)
-            });
+            // }).catch((error)=>{
+            //     console.log(error.data)
+            // });
         }
 
 

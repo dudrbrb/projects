@@ -1,8 +1,13 @@
 <template>
     <nav class="top-nav" >
         <div class="logo">
-            <nuxt-link :to="'/pc/main'">
-                <img :src="require(`@/assets/img/mb/title/${nowPath}.png`)" alt="logo">
+            <nuxt-link :to="'/mb/main'">
+                <img v-if="$route.path.includes('intro')" :src="require(`@/assets/img/mb/title/intro.svg`)" alt="logo">
+                <img v-if="$route.path.includes('main')" :src="require(`@/assets/img/mb/title/main.svg`)" alt="logo">
+                <img v-if="$route.path.includes('message')" :src="require(`@/assets/img/mb/title/message.svg`)" alt="logo">
+                <img v-if="$route.path.includes('place')" :src="require(`@/assets/img/mb/title/place.svg`)" alt="logo">
+                <img v-if="$route.path.includes('store')" :src="require(`@/assets/img/mb/title/store.svg`)" alt="logo">
+                <img v-if="$route.path.includes('works')" :src="require(`@/assets/img/mb/title/works.svg`)" alt="logo">
             </nuxt-link>
         </div>
         <div class="menu-btn" @click="menuOpen = !menuOpen" :class="{'close': menuOpen}">
@@ -10,12 +15,13 @@
             <div></div>
             <div></div>
         </div>
-        <ul v-if="menuOpen">
+        <ul :class="{open: menuOpen}">
             <li><nuxt-link class="horiz-lt" :to="'/mb/main'">ABOUT</nuxt-link></li>
             <li><nuxt-link class="horiz-lt" :to="'/mb/works'">WORKS</nuxt-link></li>
             <li><nuxt-link class="horiz-lt" :to="'/mb/message'">MESSAGE</nuxt-link></li>
             <li><nuxt-link class="horiz-lt" :to="'/mb/place'">PLACE</nuxt-link></li>
             <li><nuxt-link class="horiz-lt" :to="'/mb/store'">STORE</nuxt-link></li>
+            <li><nuxt-link class="horiz-lt" :to="'https://www.instagram.com/snad_id/'">INSTAGRAM</nuxt-link></li>
         </ul>
         <img :src="require('@/assets/img/mb/grad-top.png')" class="gradient">
     </nav>
@@ -28,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 130px;
+    height: 80px;
     width: 100%;
     max-width: 540px;
     padding: 20px 15px ;
@@ -38,27 +44,29 @@
     right: 0;
     .logo{
         margin-top: auto;
+        a{
+            @include flex();
+        }
         img{
-            height: 35px;
+            height: 30px;
         }
     }
     .menu-btn{
         width: 50px;
         height: 50px;
         margin-top: auto;
-        @include flex(center, center, column);
+        @include flex(center, flex-end, column);
         cursor: pointer;
         div{
             width: 25px;
             height: 2px;
             background-color: #fff;
-            transition: all 0.4s;
             &+div{
                 margin-top: 10px;
             }
         }
         &.close{
-            margin-top: 30px;
+            margin-top: 5px;
             div:nth-child(1){
                transform: rotate(-45deg);
                margin-top: 10px;
@@ -76,14 +84,19 @@
     }
     ul{
         position: fixed;
-        top: 130px;
+        top: 80px;
         width: 100%;
         max-width: 540px;
-        height: 100%;
+        height: 0%;
         background-color: #000;
         margin:0 auto;
         left: 0;
         right: 0;
+        overflow: hidden;
+        transition: all 0.4s;
+        &.open{
+            height: 100%;
+        }
         li{
             a{
                 color: #fff;
@@ -101,7 +114,7 @@
     .gradient{
         width: 100%;
         max-width: 540px;
-        top: 130px;
+        top: 80px;
         left: 0;
         position: absolute;
     }
@@ -114,9 +127,12 @@ export default {
     data(){
         return{
             scrollTop: false,
-            nowPath: 'intro',
-            menuOpen: false
+            menuOpen: false,
+            nowPath: null,
         }
+    },
+    created() {
+        this.getPath();
     },
     mounted(){
         this.getPath();

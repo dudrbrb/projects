@@ -2,7 +2,7 @@
     <nav class="top-nav" >
         <div class="logo">
             <nuxt-link :to="'/pc/main'">
-                <img :src="require('@/assets/img/logo.png')" alt="logo">
+                <img :src="require('@/assets/img/logo.svg')" alt="logo">
             </nuxt-link>
         </div>
         <ul>
@@ -12,7 +12,7 @@
             <li><nuxt-link class="horiz" :to="'/pc/store'">STORE</nuxt-link></li>
             <li><a class="horiz" :href="'https://www.instagram.com/snad_id/'" target="_blank">INSTAGRAM</a></li>
         </ul>
-        <img :src="require('@/assets/img/gr-top.png')" class="gradient">
+        <img :src="require('@/assets/img/gr-top.svg')" class="gradient">
     </nav>
 </template>
 
@@ -25,9 +25,11 @@
     justify-content: space-between;
     height: 70px;
     width: 100%;
-    padding: 10px 70px ;
+    padding: 10px 90px ;
     background-color: #000;
-
+    *{
+        border: none;
+    }
     .logo{
         height: 100%;
         img{
@@ -37,10 +39,15 @@
     ul{
         display: flex;
         li{
-            padding: 8px 40px 0;
+            padding: 3px 40px 0;
+            height: 40px;
+            &:last-child{
+                padding-right: 0;
+            }
             a{
                 color: #fff;
                 font-size: 34px;
+                line-height: 40px;
                 &:hover{
                     background:  linear-gradient(180deg, #F5FF33 0%, rgba(245, 255, 51, 0) 100%);
                     -webkit-background-clip: text;

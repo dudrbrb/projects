@@ -2,7 +2,7 @@
     <div class="container store pc" >
         <div class="buy-button">
             <div class="text">
-                <img :src="require('@/assets/img/pc/store/arrow.png')">
+                <img :src="require('@/assets/img/pc/store/arrow.svg')">
                 <p class="horiz">BUY</p>
             </div>
         </div>
@@ -16,7 +16,7 @@
     height: 100%;
     @include flex();
     .buy-button{
-        background: url('@/assets/img/pc/store/icon.png') no-repeat center;
+        background: url('@/assets/img/pc/store/icon.svg') no-repeat center;
         width: 400px;
         height: 340px;
         @include flex(center, center, column);

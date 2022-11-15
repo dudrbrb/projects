@@ -1,7 +1,7 @@
 <template>
     <div class="container intro pc">
         <section class="video-wrapper">
-            <video :src="require('@/assets/img/pc/pc.webm')" type="video/mp4" ref="video" autoplay loop muted> </video>
+            <video :src="require('@/assets/img/pc/pc.webm')" type="video/webm" ref="video" autoplay loop muted > </video>
 
             <div class="btn" @click="$router.push({ path: '/pc/main' });"></div>
         </section>
@@ -11,6 +11,10 @@
 
 <style lang='scss'>
 .intro.pc{
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
     .video-wrapper{
         position: relative;
         video{

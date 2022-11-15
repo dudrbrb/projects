@@ -2,8 +2,8 @@
     <v-app>
       <TopNav/>
       <Nuxt id="page" class="mb"/>
-      <!-- <div class="scroll-up" @click="scrollTop" v-if="$route.path !== '/mb/intro'"></div> -->
-      <Footer v-if="$route.path !== '/mb/intro' && $route.path !== '/mb/message'"></Footer>
+      <!-- <div class="scroll-up" @click="scrollTop" v-if="$route.name !== 'mb-intro'"></div> -->
+      <Footer v-if="$route.name !== 'mb-intro' && $route.name !== 'mb-message'"></Footer>
     </v-app>
 </template>
 
@@ -18,13 +18,13 @@
   }
 }
 nav + .container.mb{
-  padding-top: 130px ;
+  padding-top: 80px ;
 }
 
 .scroll-up{
     width: 40px;
     height: 40px;
-    background: url('@/assets/img/top.png') no-repeat center;
+    background: url('@/assets/img/top.svg') no-repeat center;
     background-size: contain;
     position: fixed;
     bottom: 30px;
@@ -44,6 +44,14 @@ export default {
     return {
     }
   },
+  created(){
+    var path = this.$route.path;
+    var newPath = path.replace('/mb/', '/pc/');
+    if(!this.$device.isMobile){
+        this.$router.push({ path: newPath });
+    }
+  },
+
   methods:{
     scrollTop(){
         var target = this.$el.querySelector('.container');

@@ -5,7 +5,7 @@
                 <p :class='["horiz", {open: menu.introduction}]' @click="menu.introduction = !menu.introduction">INTRODUCTION <span class="arrow"></span></p>
             </div>
             <div :class="['contents', {open: menu.introduction}]">
-                <img :src="require('@/assets/img/mb/main/nh.png')">
+                <img :src="require('@/assets/img/mb/main/nh.svg')">
 
                 <p>
                     디자인의 세계는 개인의 창의력과 우리가 살고있는 세계에 대한 이해를 바탕으로 수 많은 완성과 미완성들이 탄생하고 소멸한다. 
@@ -55,11 +55,11 @@
                     <div class="section-box">
                         <div>
                             <b class="horiz">A1 <span class="horiz">(PRODUCT</span></b>
-                            <img :src="require('@/assets/img/mb/main/icon1.png')">
+                            <img :src="require('@/assets/img/mb/main/icon1.svg')">
                         </div>
                         <div>
                             <b class="horiz">A2 <span class="horiz">(MOBILITY</span></b>
-                            <img :src="require('@/assets/img/mb/main/icon2.png')">
+                            <img :src="require('@/assets/img/mb/main/icon2.svg')">
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                    <div class="section-box">
                         <div>
                             <b class="horiz">B1 <span class="horiz">(PRODUCT UX</span></b>
-                            <img :src="require('@/assets/img/mb/main/icon3.png')">
+                            <img :src="require('@/assets/img/mb/main/icon3.svg')">
                         </div>
                     </div>
                 </div>
@@ -79,11 +79,11 @@
                     <div class="section-box">
                         <div>
                             <b class="horiz">C1 <span class="horiz">(FURNITURE</span></b>
-                            <img :src="require('@/assets/img/mb/main/icon4.png')">
+                            <img :src="require('@/assets/img/mb/main/icon4.svg')">
                         </div>
                         <div>
                             <b class="horiz">C2 <span class="horiz">(SPACE</span></b>
-                            <img :src="require('@/assets/img/mb/main/icon5.png')">
+                            <img :src="require('@/assets/img/mb/main/icon5.svg')">
                         </div>
                     </div>
                 </div>
@@ -215,8 +215,8 @@
                         <li>
                             <b>협찬사</b>
                             <span>
-                                <img :src="require('@/assets/img/mb/main/logo1.png')">
-                                <img :src="require('@/assets/img/mb/main/logo2.png')">
+                                <img :src="require('@/assets/img/mb/main/logo1.svg')">
+                                <img :src="require('@/assets/img/mb/main/logo2.svg')">
                             </span>
                         </li>
                         <li>
@@ -246,7 +246,7 @@
             overflow: hidden;
             &.open{
                 height: auto;
-                padding-bottom: 50px;
+                padding-bottom: 50px !important;
             }
         }
         .menu{
@@ -257,13 +257,13 @@
                 height: 60px;
                 font-weight: 500;
                 font-size: 20px;
-                line-height: 24px;
+                line-height: 60px;
                 padding: 15px 20px ;
                 .arrow{
-                    background:url('@/assets/img/mb/main/arrow.png') no-repeat center;
+                    background:url('@/assets/img/mb/main/arrow.svg') no-repeat center;
                     display: inline-block;
                     width: 40px;
-                    height: 40px;
+                    height: 60px;
                 }
                 &.open{
                     .arrow{
@@ -274,15 +274,17 @@
         
         }
         &#introduction{
+            padding-top: 10px;
             .contents{
                 padding: 0 15px;
                 img{
                     margin-left: 50%;
-                    transform: translateX(-50%);
+                    transform: translateX(-40%);
+                    width: 230px;
                 }
                 p{
                     font-size: 14px;
-                    line-height: 214%;
+                    line-height: 27px;
                     letter-spacing: -0.03em;
                     word-break: break-all;
                     text-align: justify;
@@ -316,6 +318,12 @@
                 .track-box{
                     width: 100%;
                     padding-top: 40px;
+                    &:last-child{
+                        .section-box{
+                            margin-bottom: 0;
+
+                        }
+                    }
                     >b{
                         width: 100%;
                         margin-bottom: 20px;
@@ -344,6 +352,12 @@
                             }
                             b{
                                 white-space: nowrap;
+                                margin-bottom: 10px;
+                                display: block;
+                                font-size: 16px;
+                                span{
+                                    font-size: 16px;
+                                }
                             }
                         }
                     }
@@ -395,7 +409,6 @@
                         }
                     }
                     &.etc{
-                        margin-bottom: 40px;
                         ul{
                             li{
                                 justify-content: flex-start;

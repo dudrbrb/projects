@@ -3,14 +3,14 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
-
+  // server: { port: 80 } ,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - homepage',
-    title: 'homepage',
+    titleTemplate: '',
+    title: 'NEW HORIZONS',
     htmlAttrs: {
       lang: 'ko'
     },
@@ -35,29 +35,21 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/vuetify
-    // 'nuxt-compress',
-    // '@nuxtjs/vuetify',
-    // '@nuxtjs/style-resources',
-  ],
-  
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/device',
-    '@nuxtjs/axios',
     'nuxt-compress',
     '@nuxtjs/vuetify',
     '@nuxtjs/style-resources',
+  ],
+  modules: [
+    '@nuxtjs/device',
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
   styleResources: {
     scss: [
       '@/assets/main.scss',
     ],
   },
-  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     theme: {
       themes: {
@@ -73,12 +65,18 @@ export default {
       }
     }
   },
-
+  env: {
+    baseUrl: "http://www.seoultech-id-degreeshow-2022.com",
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  serverMiddleware: ['@/api/index.js'],
+  // serverMiddleware: {
+  //   '/api': '~/api'
+  // },
+  serverMiddleware: ['~/api/index.js'],
   axios: {
-    proxy: true
-  },
+    // baseURL: process.env.baseUrl,
+  }
 }
+

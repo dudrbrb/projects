@@ -3,12 +3,13 @@
         <section id="video"></section>
         <section id="infomation">
             <div class="title">
-                <img :src="require('@/assets/img/pc/main/title1.png')">
-                <img :src="require('@/assets/img/pc/main/title2.png')">
+                <img :src="require('@/assets/img/pc/main/title1.svg')">
+                <img :src="require('@/assets/img/pc/main/title2.svg')">
             </div>
             <div class="info-wrapper">
                 <div class="info">
-                    <p>
+                    
+                     <p>
                         디자인의 세계는 개인의 창의력과 우리가 살고있는 세계에 대한 이해를 바탕으로 수 많은 완성과 
                         미완성들이 탄생하고 소멸한다. 이러한 탄생과 소멸은 무수한 가능성 안에서 디자이너의 심도 깊은 탐색, 그리고 그것들을 종합적으로 정리하는 과정으로부터 발생한다. 우리는 지난 4년간의 여정 중 다양한 
                         가능성 속에서 자신만의 행성을 탐색해왔다. 
@@ -19,34 +20,36 @@
                         7일간의 전시를 마친 후 우리는 미지의 영역으로 나아가 더 넓고 다양한 세계를 경험하게 될 것이다. 
                     </p>
                     <p>
-                        서울과학기술대학교 산업디자인학과 제 40회 졸업전시 &lt;New Horizons&gt;는 새로운 지평을 열어줄 
-                        53명의 전시자들과 각각의 여정이 생생히 담긴 전시이다. 정해진 과정을 함께 밟아왔지만 
-                        53개의 각기 다른 열정과 개성으로 여정을 마무리하였다. 우리의 다음 행선지는 어디일까?
+                        서울과학기술대학교 산업디자인학과 제 40회 졸업전시 &lt;New Horizons&gt;는 
+                        새로운 지평을 열어줄 49명의 전시자들과 각각의 여정이 생생히 담긴 전시이다.
+                         정해진 과정을 함께 밟아왔지만 49개의 각기 다른 열정과 개성으로 여정을 마무리하였다. 
+                         우리의 다음 행선지는 어디일까?
                     </p>
                 </div>
                 <div class="info">
                     <p class="en">
-                        The world of design is based on individual creativity and understanding of the world 
-                        we live in Unfinished things are born and destroyed. This birth and extinction is the depth of the designer within the myriad
-                        possibilities It occurs from deep exploration, and the process of comprehensively organizing them. 
-                        We've spent the last four years He has explored his own planet in various possibilities during his journey. 
+                        The universe of design is based on understanding of the world where we live in, 
+                        and lots of unfinished works and creative masterpieces are born and destroyed.
+                        All those creations and extinction of design works arise through all process of the designer's in-depth 
+                        study with their infinitive possibilities and organizing those ideas. 
+                        We have built and explored our own planet in each's variety of possibilities over the past 4 years.
                     </p>
                     <p class="en">
-                        This exhibition is a record of the search so far and its results, and at the same time, 
-                        it is a leap forward for a new start. Now we are in one place to prepare for a new 
-                        start. after a seven-day exhibition We will move on to the unknown and experience a wider and diverse world. 
+                        This exhibition is record of the result of our 4 years journey, at the same time,
+                         to us a step forward for our new start. Now, we are all here to be ready for a new beginning. 
+                         After this 7days of exhibition, each of us will experience a wider and diverse unknown world.
+
                     </p>
                     <p class="en">
-                    The 40th graduation exhibition &lt;New Horizons&gt; of the Department of Industrial 
-                        Design at Seoul National University of Science and Technology will open up a new horizon It is an exhibition
-                         that vividly shows 53 exhibitors and their respective journeys. We've been going through a set process together, 
-                         but 53 I finished my journey with different passion and personality. Where will our next destination be?
+                        The 40th Graduation Exhibition &lt;New Horizons&gt; of the Department of Industrial Design 
+                        at Seoul University of Science and Technology contains the vivid journey of 49-exhibitors(designers), 
+                        which will open up the new horizon of each's design world.
                     </p>
                 </div>
                 <div class="info img">
-                    <img :src="require('@/assets/img/pc/main/horizons.png')"/>
+                    <img :src="require('@/assets/img/pc/main/horizons.svg')"/>
                 </div>
-                <div class="info row">
+                <div class="info row-el">
                     <p>
                         뉴 호라이즌스호(New horizons)는 NASA가 쏘아올린 첫 번째 명왕성 무인 탐사선이다. 
                         뉴 호라이즌스호는 시작부터 여러 난항을 겪었지만 힘차게 새로운 지평을 향한 여정을 시작했다. 
@@ -68,46 +71,45 @@
             <div class="tracks">
                 <div class="track-box">
                     <b class="horiz">TRACK A <span class="horiz">(PRODUCT</span></b>
-                    <p>제품, 생산물, 상품의 외관을 구성하는 모양·형상·색채·장식·양식 등의 심미성 이외에도 개성, 기능성 등 다양한 요소를 소비자의 미적 감각이나 욕구에 부응하게 결합하여 구매선호를 일으키게 하는 것이다. 사용자에게 특별한 경험을 제안하기도 하며 사용자 경험을 더욱 훌륭하게 만들어 우리의 삶을 편리하고 윤택하게 만들기도 한다. 이는 사회적 트렌드를 반영하고 보다 혁신적이고 매력적인 방식으로 소비자의 주목을 끄는 상품을 만드는 것이 목적이다. </p>
+                    <p>제품디자인은 제품의 다양한 요소를 소비자의 니즈와 결합하는 것을 의미한다. 이를 기반으로 포괄적인 분야에서의 제품 디자인에 대한 탐구를 목표로 한다. 사회적 트렌드를 반영한 접근 방식을 통해 사용자에게 특별한 경험을 제안하거나 기존의 경험을 더욱 훌륭하게 만들고, 궁극적으로 제품을 통해 보다 편리하고 윤택한 삶으로의 변화를 추구한다. </p>
+            
+                    <div class="section-box">
+                        <div>
+                            <b class="horiz">A1 <span class="horiz">(PRODUCT</span></b>
+                            <img :src="require('@/assets/img/pc/main/icon1.svg')">
+                        </div>
+                        <div>
+                            <b class="horiz">A2 <span class="horiz">(MOBILITY</span></b>
+                            <img :src="require('@/assets/img/pc/main/icon2.svg')">
+                        </div>
+                    </div>
                 </div>
                 <div class="track-box">
                     <b class="horiz">TRACK B <span class="horiz">(INTERACTION</span></b>
-                    <p>인터페이스, 인간요소, 커뮤니케이션 디자인 등 사용자 경험에 관한 체계적이고 분석적인 기획을 바탕으로 디지털 제품을 기능적이고 심미적으로 디자인한다. 그 후 사용자 경험 설계를 바탕으로 제품(사물)과 사람 간의 연결, 상호 작용의 경험을 도출해낸다.</p>
+                    <p>사용자 경험에 관한 체계적이고 분석적인 기획을 바탕으로 제품과 사람의 상호 작용을 효율적이고 편리하게 만들며 긍정적인 사용자 경험 개선을 목표로 한다. 사용자에 대한 심도깊은 분석을 통해 제품과 사용자의 거리를 좁히는 것에 초점을 두고 있다. 사용자 인터페이스와 같은 매개 뿐 아니라 사용자의 경험 자체에서도 효율성과 심미성을 고려한다. </p>
+                      <div class="section-box">
+                        <div>
+                            <b class="horiz">B1 <span class="horiz">(PRODUCT UX</span></b>
+                            <img :src="require('@/assets/img/pc/main/icon3.svg')">
+                        </div>
+                    </div>
                 </div>
                 <div class="track-box">
                     <b class="horiz">TRACK C <span class="horiz">(ENVIRONMENT</span></b>
-                    <p>다양한 디지털 제품의 통합적 기획 및 개발과정을 학습하고, 문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.다양한 디지털 제품의 통합적 기획 및 개발과정을 학습하고, 문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.</p>
+                    <p>생활 환경을 형성하는 모든 요소와 사용자를 복합적으로 고려하는 환경디자인의 큰 틀을 기반으로 한다. 사용자와 환경 의 관계를 이해하고 분석하여 사용자와 환경이 필요로 하는 조건을 조화롭게 반영하여 구성하는 것을 목표로 한다. 공간 자체의 기획 또는 가구 디자인 등 사용자의 생활 환경을 다양한 크기의 영역으로 세분화하여 디자인한다.</p>
+                    <div class="section-box">
+                        <div>
+                            <b class="horiz">C1 <span class="horiz">(FURNITURE</span></b>
+                            <img :src="require('@/assets/img/pc/main/icon4.svg')">
+                        </div>
+                        <div>
+                            <b class="horiz">C2 <span class="horiz">(SPACE</span></b>
+                            <img :src="require('@/assets/img/pc/main/icon5.svg')">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="sections">
-                <div class="section-box">
-                    <div>
-                        <b class="horiz">A1 <span class="horiz">(PRODUCT</span></b>
-                        <img :src="require('@/assets/img/pc/main/icon1.png')">
-                    </div>
-                    <div>
-                        <b class="horiz">A2 <span class="horiz">(MOBILITY</span></b>
-                        <img :src="require('@/assets/img/pc/main/icon2.png')">
-                    </div>
-                </div>
-                <div class="section-box">
-                    <div>
-                        <b class="horiz">B1 <span class="horiz">(PRODUCT UX</span></b>
-                        <img :src="require('@/assets/img/pc/main/icon3.png')">
-                    </div>
-                </div>
-                <div class="section-box">
-                    <div>
-                        <b class="horiz">C1 <span class="horiz">(FURNITURE</span></b>
-                        <img :src="require('@/assets/img/pc/main/icon4.png')">
-                    </div>
-                    <div>
-                        <b class="horiz">C2 <span class="horiz">(SPACE</span></b>
-                        <img :src="require('@/assets/img/pc/main/icon5.png')">
-                    </div>
-                </div>
-            </div>
         </section>
         <section id="drectors">
             <div class="professor">
@@ -225,10 +227,10 @@
                 <b>협찬사</b> 
                 <ul>
                     <li>
-                        <img :src="require('@/assets/img/pc/main/logo1.png')">
+                        <img :src="require('@/assets/img/pc/main/logo1.svg')">
                     </li>
                     <li>
-                        <img :src="require('@/assets/img/pc/main/logo2.png')">
+                        <img :src="require('@/assets/img/pc/main/logo2.svg')">
                     </li>
                 </ul>
                 <b>웹 개발</b> 
@@ -243,7 +245,7 @@
             </div>
         </section>
         <footer>
-            <img :src="require('@/assets/img/pc/main/copyright.png')">
+            <img :src="require('@/assets/img/pc/main/copyright.svg')">
         </footer>
     </div>
 </template>
@@ -254,14 +256,14 @@
     height: 100%;
     background-color: #000;
     section{
-        padding: 0 150px;
+        padding: 0 90px;
     }
     b, span, p{
         color: #fff
     }
     #video{
         width: 100%;
-        height: 1000px;
+        height: 110vh;
         padding: 0;
     }
     #infomation{
@@ -277,39 +279,42 @@
             flex-wrap: wrap;
             .info{
                 background: none !important;
-                width : 46%;
+                width : 48%;
                 margin-bottom: 200px;
                 p{
                     font-size: 18px;
-                    line-height: 214%;
+                    line-height: 38.52px;
                     &.en{
                         font-size: 19px;
-                        line-height: 170%;
+                        line-height: 32.3px;
                         /* or 32px */
 
-                        letter-spacing: 0.02em;
+                        letter-spacing: 2%;
                     }
                 }
                 &.img{
                     @include flex();
-                    width: 54%;
+                    width: 52%;
                     img{
                         margin-right: 100px;
+                        margin-top: -250px
                     }
                 }
-                &.row{
+                &.row-el{
                     @include flex(space-between, flex-start);
                     margin-top: 100px;
                     margin-left: auto;
-                    max-width: 750px;
+                    max-width: 808px;
+                    width: 47%;
                     p{
                         font-size: 14px;
-                        width: 46%;
+                        width: 48%;
                         line-height: 30px;
+                        word-break: break-all;
+                        text-align: justify;
                         &.en{
                             font-size: 15px;
                             line-height: 28px;
-                            text-align: justify;
                             letter-spacing: 0.02em;
 
                         }
@@ -320,10 +325,17 @@
     }
     #track{
         margin-bottom: 560px;
+        // padding: 0px 110px;
         .tracks{
             @include flex(space-between, flex-start);
+            position: relative;
+            height:600px;
+
+           
             .track-box{
                 flex: 1;
+                width: 30%;
+                max-width: 500px;
                 &+div{
                     margin-left: 5%;
                 }
@@ -340,52 +352,59 @@
                     }
                 }
                 p{
-                    font-size: 18px;
-                    line-height: 214%;
+                    font-size: 17px;
+                    line-height: 38.52px;
+                    word-break: break-all;
                 }
                 .horiz{
                     font-weight: 200;
                 }
-            }
-        }
-        .sections{
-            @include flex(space-between);
-            margin-top: 60px;
-            .section-box{
-                @include flex(space-between);
-                flex: 1;
-                &:nth-child(2){
-                    justify-content: center;
-                }
-                &+div{
-                    margin-left: 15%;
-                }
-                div{
-                    flex-direction: column;
+                .section-box{
+                    @include flex(space-between);
+                    margin-top: 60px;
+                    position: absolute;
+                    width: 30%;
+                    max-width: 500px;
+                    bottom: 0;
                     &+div{
-                        margin-left: 10%
+                        margin-left: 5%;
                     }
-                    b{
-                        @include flex(space-between);
-                        font-size: 22px;
-                        line-height: 26px;
-                        letter-spacing: 0.01em;
-                        margin-bottom: 20px;
-                        width: 100%;
-                        span{
+                    &:nth-child(2){
+                        justify-content: center;
+                    }
+                    div{
+                        flex-direction: column;
+                        &+div{
+                            margin-left: 10%
+                        }
+                        b{
+                            @include flex(space-between);
                             font-size: 22px;
                             line-height: 26px;
                             letter-spacing: 0.01em;
+                            margin-bottom: 20px;
+                            width: 100%;
+                            span{
+                                font-size: 22px;
+                                line-height: 26px;
+                                letter-spacing: 0.01em;
+                            }
+                        }
+                        img{
+                            max-width: 11vw;
+                        }
+                        .horiz{
+                            font-weight: 200;
                         }
                     }
-                    img{
-                        max-width: 10vw;
-                    }
-                    .horiz{
-                        font-weight: 200;
+                }
+                &:nth-child(2){
+                    .section-box  {
+                        justify-content: center;
                     }
                 }
             }
+        
         }
     }
     #drectors{
@@ -405,6 +424,7 @@
                     font-size: 18px;
                     line-height: 214%;
                     margin-bottom: 0;
+            
                 }
                 span{
                     font-size: 14px;
@@ -415,16 +435,27 @@
                 margin-top: 60px;
             }
         }
+        .professor{
+            ul{
+                li{
+                    p{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
         .committee{
             ul{
                 li{
+                    &+li{
+                        margin-top: 66.75px;
+                    }
                     p{
                         @include flex(flex-start);
                         font-size: 18px;
                         line-height: 214%;
-
+                        font-weight: bold;
                         b{
-                            font-weight: 400;
                             position: relative;
                             font-size: 18px;
                             line-height: 214%;
@@ -451,9 +482,10 @@
                 margin-top: -30px;
                 li{
                     margin-right: 45px;
-                    margin-top: 30px;
+                    margin-top: 30.5px;
                     text-align: center;
                     max-width: 50px;
+                    font-weight: bold;
                     &.over{
                         margin-left: -8px;
                         margin-right: 53px;
@@ -463,7 +495,13 @@
         }
         .etc{
             ul{
-                margin-bottom: 110px;
+                margin-bottom: 122px;
+                li{
+                    font-weight: bold;
+                }
+                li+li{
+                    margin-top: 25px;
+                }
             }
         }
     }

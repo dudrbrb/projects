@@ -1,10 +1,8 @@
 <template>
     <div class="container place mb">
         <section id="slide">
-             <b v-if="nowSpot !== null">{{spotName}} <span class="bold">{{spotEngName}} </span></b>
-
             <div class="information" v-if="nowSpot == null">
-                <img :src="require('@/assets/img/mb/place/info.png')">
+                <img :src="require('@/assets/img/mb/place/info.svg')">
             </div>
             <div class="img-wrapper" v-if="nowSpot !== null">
                 <v-carousel cycle hide-delimiter-background delimiter-icon="mdi-round" height="280">
@@ -21,6 +19,7 @@
             </div>
         </section>
         <section id="category">
+            <!-- <b v-if="nowSpot !== null">{{spotName}} <span class="bold">{{spotEngName}} </span></b> -->
             <ul>
                 <li @click="nowPlace = 3; nowSpot = 1;" :class="['horiz', {act: nowPlace == 3}]">3F</li>
                 <li @click="nowPlace = 2; nowSpot = 1;" :class="['horiz', {act: nowPlace == 2}]">2F</li>
@@ -55,19 +54,6 @@
     width: 100%;
     height: 100%;
     #slide{
-        b{
-            font-size: 16px;
-            line-height: 66px;
-            height: 60px;
-            display: block;
-            padding: 0 15px;
-            span{
-                font-size: 16px;
-                line-height: 140%;
-                margin-left: 20px
-            }
-        } 
-
         .information{
             width: 100%;
             height: 280px;
@@ -103,6 +89,7 @@
                 top: 0;
 
                 .v-item-group{
+                    margin-right: 15px;
                     button{
                         margin: 0;
                         width: 20px;
@@ -137,7 +124,18 @@
         height: 50px;
         @include flex(flex-end);
         padding: 0 15px;
-    
+        b{
+            font-size: 16px;
+            line-height: 50px;
+            height: 50px;
+            display: block;
+            text-shadow:0px 0px 0.5px #000;
+            span{
+                font-size: 16px;
+                line-height: 140%;
+                margin-left: 20px
+            }
+        } 
         ul{
             @include flex();
             margin-left: auto;

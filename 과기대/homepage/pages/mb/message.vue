@@ -35,6 +35,7 @@ $yellow: #F5FF33;
         width: 100%;
         @include flex(flex-start, center, column);
         margin-bottom: 170px;
+        margin-top: 10px;
         ul{
             width: 100%;
             margin-top: -15px;
@@ -52,7 +53,7 @@ $yellow: #F5FF33;
                 }
                 p{
                     font-size: 16px;
-                    line-height: 180%;      
+                    line-height: 140%;      
                     margin-bottom: 0;
                     width: 100%;
                     height: auto;
@@ -60,7 +61,7 @@ $yellow: #F5FF33;
                 }
                 span{
                     font-size: 14px;
-                    line-height: 180%;      
+                    margin-top: 5px;
                 }
                 p, span{
                     width: 100%;
@@ -133,7 +134,7 @@ export default {
             },
         }
     },
-    async created(){
+    created(){
         this.getMessages()
     },
     mounted(){
@@ -174,7 +175,7 @@ export default {
             
             // this.messageList.unshift(this.sendData)
         },
-        async sendMessage(){
+        sendMessage(){
             if(this.sendData.writer == null) return alert('이름을 입력해주세요.')
             if(this.sendData.message == null) return alert('방명록을 작성해주세요.')
             
@@ -187,14 +188,14 @@ export default {
              
             }, 300);
             
-            await this.$axios.post('/api/add/message', this.sendData)
+            this.$axios.post('/api/message/add', this.sendData)
             .then((response) => {
             }).catch((error) => { 
                 console.log(error)
             });
         },
         getMessages(){
-            this.$axios.$get(`/api/list/message`).then(datas =>{
+            this.$axios.$get(`/api/message/list`).then(datas =>{
                 this.messageList = datas.reverse();
                 this.page = Math.ceil(this.messageList.length / 6);
                 setTimeout(() => {

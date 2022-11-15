@@ -11,7 +11,7 @@
         <section id="place">
             <div class="img-wrapper">
                 <div class="information" v-if="nowSpot == null">
-                    <img :src="require('@/assets/img/pc/place/pointer.png')">
+                    <img :src="require('@/assets/img/pc/place/pointer.svg')">
                     <p class="bold">HOVER THE CIRCLE</p>
                     <p>전시장의 현장 이미지를 확인해보세요</p>
                 </div>
@@ -45,7 +45,7 @@
             </div>
         </section>
         <footer>
-            <img :src="require('@/assets/img/pc/copyright.png')">
+            <img :src="require('@/assets/img/pc/copyright.svg')">
         </footer>
     </div>
 </template>
@@ -57,13 +57,17 @@
         width: 100%;
         height: 120px;
         @include flex(space-between);
-        padding: 20px 90px 0;
+        padding: 40px 90px 0;
+        b{
+            text-shadow:0px 0px 0.5px #000;
+        }
         b, b span{
             font-size: 24px;
             line-height: 140%;
         }
         b span{
-            margin-left: 30px
+            margin-left: 30px;
+            font-weight: bold;
         }
         ul{
             @include flex();

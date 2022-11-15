@@ -2,7 +2,7 @@
     <div class="footer">
         <img :src="require('@/assets/img/mb/grad-bot.png')" class="ft-grad">
         <div class="image">
-            <img :src="require('@/assets/img/mb/footer/icon.png')">
+            <img :src="require('@/assets/img/mb/footer/icon.svg')">
         </div>
         <div class="text">
             <p>서울과학기술대학교<br>
@@ -12,7 +12,7 @@
             <p>2022.11.21 - 2022.11.27<br>
                 100주년기념관 목산갤러리
             </p>
-            <img :src="require('@/assets/img/mb/footer/copyright.png')">
+            <img :src="require('@/assets/img/mb/footer/copyright.svg')">
 
         </div>
     </div>
@@ -44,6 +44,15 @@
             align-items: center;
             img{
                 margin: -70px 35px 0 0;
+            }
+        }
+        &.text{
+            align-items: flex-start;
+            p+p{
+                margin-top: 15px;
+            }
+            img{
+                margin-top: 15px;
             }
         }
     }

@@ -1,15 +1,19 @@
 <template>
     <div class="container message pc">
         <section id="list">
-            <ul>
+            <ul >
                 <li v-for="(msg, idx) in messageList" :key="`message${idx}`" v-if="idx >= (6*(nowPage-1)) && idx < (6*nowPage) " >
                     <b>{{msg.writer}}</b>
-                    <p>{{msg.message}}
+                    <p v-if='recent == msg._id' v-on='typing(msg.message)'>
+                        {{typingText}}
+                        <span>{{msg.date}} / {{msg.time}}</span>
+                    </p>
+                    <p v-else>{{msg.message}}
                         <span>{{msg.date}} / {{msg.time}}</span>
                     </p>
                 </li>
             </ul>
-            <div class='pagination'>
+            <div class='pagination'  >
                 <span :class="{act : nowPage == n}" v-for="n in page" 
                 @click="nowPage = n"
                 :key="`pagination${n}`"></span>
@@ -25,7 +29,7 @@
             <div class="horiz" @click="sendMessage">SEND</div>
         </section>
         <footer>
-            <img :src="require('@/assets/img/pc/main/copyright.png')">
+            <img :src="require('@/assets/img/pc/main/copyright.svg')">
         </footer>
     </div>
 </template>
@@ -45,7 +49,7 @@ $yellow: #F5FF33;
         width: 60%;
         max-width: 1100px;
         padding-right: 5%;
-        margin: 140px 0 auto 90px;
+        margin: 11vh 0 auto 90px;
         @include flex(flex-start, center, column);
         ul{
             width: 100%;
@@ -100,7 +104,7 @@ $yellow: #F5FF33;
     }
     #form{
         @include flex(flex-start, flex-start, column);
-        margin: 140px 90px 0 0;
+        margin: 11vh 90px 0 0;
         width: 40%;
         // max-width: ;
         input, textarea{
@@ -118,7 +122,7 @@ $yellow: #F5FF33;
         }
         .textarea-box{
             width: 100%;
-            height: 480px;
+            height: 40vh;
             position: relative;
             textarea{
                 width: 100%;
@@ -167,19 +171,22 @@ export default {
             byte: 300,
             page: 0,
             nowPage: 1,
+            
             sendData: {
                 writer: null,
                 message: null,
                 date: null,
                 time: null
             },
+            recent : null,
+            typingText: ' ',
+            count: Number(0),
+            fulltext: ''
+
         }
     },
-    async created(){
-        this.getMessages()
-    },
-
-    mounted(){
+    created() {
+        this.getMessages();
     },
     watch:{
         byte:{
@@ -216,7 +223,7 @@ export default {
             
             // this.messageList.unshift(this.sendData)
         },
-        async sendMessage(){
+         sendMessage(){
             if(this.sendData.writer == null) return alert('이름을 입력해주세요.')
             if(this.sendData.message == null) return alert('방명록을 작성해주세요.')
             
@@ -228,20 +235,26 @@ export default {
                 this.byte = 300;
             }, 300);
             
-            await this.$axios.post('/api/add/message', this.sendData)
-            .then((response) => {
+             this.$axios.post('/api/message/add', this.sendData).then((response) => {
+                console.log(response)
             }).catch((error) => { 
                 console.log(error)
             });
         },
-        getMessages(){
-            this.$axios.$get(`/api/list/message`).then(datas =>{
+         getMessages(){
+            this.$axios.$get(`/api/message/list`).then(datas =>{
                 this.messageList = datas;
                 this.page = Math.ceil(this.messageList.length / 6);
+                this.recent = datas[0]._id;
             }).catch((error)=>{
                 console.log(error.data)
             });
-        }
+        },
+        typing(v){
+
+
+        },
+ 
 
     }
 }

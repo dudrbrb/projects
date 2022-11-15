@@ -1,8 +1,8 @@
 <template>
     <v-app>
-      <TopNav  v-if="$route.path !== '/pc/intro'"/>
+      <TopNav  v-if="$route.name !== 'pc-intro'"/>
       <Nuxt id="page"/>
-      <div class="scroll-up" @click="scrollTop" v-if="$route.path !== '/pc/intro'"></div>
+      <div class="scroll-up-pc" @click="scrollTop" v-if="$route.name !== 'pc-intro'"></div>
     </v-app>
 </template>
 
@@ -15,14 +15,14 @@
 nav + .container{
   padding-top: 70px;
 }
-.scroll-up{
-    width: 40px;
-    height: 40px;
-    background: url('@/assets/img/top.png') no-repeat center;
+.scroll-up-pc{
+    width: 60px;
+    height: 60px;
+    background: url('@/assets/img/top.svg') no-repeat center;
     background-size: contain;
     position: fixed;
     bottom: 50px;
-    right: 30px;
+    right: 15px;
     z-index: 999;
     cursor: pointer;
 }
@@ -35,6 +35,13 @@ export default {
   components: {TopNav},
   data () {
     return {
+    }
+  },
+  created(){
+    var path = this.$route.path;
+    var newPath = path.replace('/pc/', '/mb/');
+    if(this.$device.isMobile){
+        this.$router.push({ path: newPath });
     }
   },
   methods:{
