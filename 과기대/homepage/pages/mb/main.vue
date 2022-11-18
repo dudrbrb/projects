@@ -78,12 +78,12 @@
                     <p>다양한 디지털 제품의 통합적 기획 및 개발과정을 학습하고, 문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.다양한 디지털 제품의 통합적 기획 및 개발과정을 학습하고, 문화 및 사람과 사물의 상호작용과 그를 이용한 사용자 경험을 디자인한다.</p>
                     <div class="section-box">
                         <div>
-                            <b class="horiz">C1 <span class="horiz">(FURNITURE</span></b>
-                            <img :src="require('@/assets/img/mb/main/icon4.svg')">
+                            <b class="horiz">C1 <span class="horiz">(SPACE</span></b>
+                            <img :src="require('@/assets/img/mb/main/icon5.svg')">
                         </div>
                         <div>
-                            <b class="horiz">C2 <span class="horiz">(SPACE</span></b>
-                            <img :src="require('@/assets/img/mb/main/icon5.svg')">
+                            <b class="horiz">C2 <span class="horiz">(FURNITURE</span></b>
+                            <img :src="require('@/assets/img/mb/main/icon4.svg')">
                         </div>
                     </div>
                 </div>
