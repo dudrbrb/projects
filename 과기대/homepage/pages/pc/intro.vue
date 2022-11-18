@@ -13,12 +13,14 @@
 .intro.pc{
     background-color: #000;
     width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
+    height: 100%;
     .video-wrapper{
+        overflow-y: hidden;
+        width: 100%;
+        height: 100vh;
         position: relative;
         video{
-            margin-bottom: -10px;
+            margin: - auto -10px;
             width: 100%;
             height: 100%;
         }

@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="map-wrapper map3" v-if="nowPlace == 3">
-                <img :src="require('@/assets/img/pc/place/map/3.png')">
+                <img :src="require('@/assets/img/pc/place/map/3.svg')">
                 <div :class="['spot', 'spot1', {act:( nowPlace== 3 && nowSpot ==1 )}]" @mouseover="nowSpot=1"></div>
                 <div :class="['spot', 'spot2', {act:( nowPlace== 3 && nowSpot ==2 )}]" @mouseover="nowSpot=2"></div>
                 <div :class="['spot', 'spot3', {act:( nowPlace== 3 && nowSpot ==3 )}]" @mouseover="nowSpot=3"></div>
@@ -34,12 +34,12 @@
                 <div :class="['spot', 'spot5', {act:( nowPlace== 3 && nowSpot ==5 )}]" @mouseover="nowSpot=5"></div>
             </div>
             <div class="map-wrapper map2" v-if="nowPlace == 2">
-                <img :src="require('@/assets/img/pc/place/map/2.png')">
+                <img :src="require('@/assets/img/pc/place/map/2.svg')">
                 <div :class="['spot', 'spot1', {act:( nowPlace== 2 && nowSpot ==1 )}]" @mouseover="nowSpot=1"></div>
                 <div :class="['spot', 'spot2', {act:( nowPlace== 2 && nowSpot ==2 )}]" @mouseover="nowSpot=2"></div>
             </div>
             <div class="map-wrapper map1" v-if="nowPlace == 1">
-                <img :src="require('@/assets/img/pc/place/map/1.png')">
+                <img :src="require('@/assets/img/pc/place/map/1.svg')">
                 <div :class="['spot', 'spot1', {act:( nowPlace== 1 && nowSpot ==1 )}]" @mouseover="nowSpot=1"></div>
                 <div :class="['spot', 'spot2', {act:( nowPlace== 1 && nowSpot ==2 )}]" @mouseover="nowSpot=2"></div>
             </div>
@@ -132,7 +132,7 @@
         }
         .map-wrapper{
             width: 49%;
-            max-width: 850px;
+            max-width: 570px;
             height: 100%;
             position: relative;
             @include flex();
@@ -142,8 +142,8 @@
                 object-fit: contain;
             }
             .spot{
-                width: 140px;
-                height: 140px;
+                width: 75px;
+                height: 75px;
                 opacity: 0.8;
                 border-radius: 50%;
                 background-color: #D9D9D9;
@@ -156,20 +156,19 @@
                 }
             }
             &.map1{
-              
                 .spot1{
-                    transform: translate(322px, 265px);
+                    transform: translate(150px, 327px)
                 }
                 .spot2{
-                    transform: translate(552px, 265px);
+                    transform: translate(421px, 284px)
                 }
             }
             &.map2{
                 .spot1{
-                    transform: translate(492px, 103px);
+                    transform: translate(300px, 443px)
                 }
                 .spot2{
-                    transform: translate(670px, 341px);
+                    transform: translate(480px, 140px);
                 }
             }
             &.map3{
@@ -177,19 +176,19 @@
                     transform: scale(1.075);
                 }
                 .spot1{
-                    transform: translate(150px, 530px);
+                    transform: translate(83px, 540px)
                 }
                 .spot2{
-                    transform: translate(92px, 243px);
+                    transform: translate(34px, 233px)
                 }
                 .spot3{
-                    transform: translate(210px, 5px);
+                    transform: translate(200px, 320px)
                 }
                 .spot4{
-                    transform: translate(443px, 190px);
+                    transform: translate(415px, 420px)
                 }
                 .spot5{
-                    transform: translate(612px, 422px);
+                    transform: translate(382px, 140px)
                 }
             }
         }

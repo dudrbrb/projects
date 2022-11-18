@@ -4,12 +4,18 @@
             <ul >
                 <li v-for="(msg, idx) in messageList" :key="`message${idx}`" v-if="idx >= (6*(nowPage-1)) && idx < (6*nowPage) " >
                     <b>{{msg.writer}}</b>
-                    <p v-if='recent == msg._id' v-on='typing(msg.message)'>
-                        {{typingText}}
-                        <span>{{msg.date}} / {{msg.time}}</span>
+                    <p v-if='recent == msg._id' >
+                        <vue-typer 
+                            :text='msg.message'  
+                            :repeat='0'
+                            :type-delay='180'
+                            :pre-erase-delay='180'
+                        ></vue-typer>
+                        <span class="time">{{msg.date}} / {{msg.time}}</span>
                     </p>
-                    <p v-else>{{msg.message}}
-                        <span>{{msg.date}} / {{msg.time}}</span>
+                    <p v-else>
+                        {{msg.message}}
+                        <span class="time">{{msg.date}} / {{msg.time}}</span>
                     </p>
                 </li>
             </ul>
@@ -36,6 +42,7 @@
 
 <style lang='scss'>
 $yellow: #F5FF33;
+
 .message.pc{
     width: 100%;
     height: 100%;
@@ -64,23 +71,25 @@ $yellow: #F5FF33;
                 b{
                     width: 100px;
                     font-size: 18px;
-                    line-height: 214%;
+                    line-height: 190%;
                 }
-                p{
+                p, &.char{
                     font-size: 18px;
-                    line-height: 214%;
+                    line-height: 190%;
                     margin-bottom: 0;
                     width: 100%;
                     height: auto;
                     word-break: break-all
                 }
-                span{
+                span.time{
                     font-size: 15px;
                     line-height: 190%;
-                }
-                p, span{
-                    width: 100%;
                     display: block;
+                }
+                span.right, span.caret{
+                    max-height: 0;
+                    opacity: 0;
+                    position: absolute;
                 }
             }
         }
@@ -159,12 +168,28 @@ $yellow: #F5FF33;
         @include flex();
 
     }
+    .vue-typer span.left{
+        display: inline-block;
+    } 
+    .vue-typer .custom.char{
+        color: #000;
+    }
+    .vue-typer .custom.char.typed {
+        color: #fff;
+    }
+    .vue-typer .custom.caret.selecting {
+    display: inline-block;
+    background-color: #fff;
+    }
+
 }
 </style>
 
 <script>
+import { VueTyper } from 'vue-typer'
 export default {
     name: 'message',
+    components:{VueTyper},
     data(){
         return{
             messageList: null,
@@ -179,10 +204,6 @@ export default {
                 time: null
             },
             recent : null,
-            typingText: ' ',
-            count: Number(0),
-            fulltext: ''
-
         }
     },
     created() {
@@ -196,6 +217,9 @@ export default {
                 }
             }
         },
+    },
+    filters:{
+  
     },
     methods:{
         checkLength(v){
@@ -250,10 +274,7 @@ export default {
                 console.log(error.data)
             });
         },
-        typing(v){
-
-
-        },
+ 
  
 
     }

@@ -11,18 +11,22 @@ MongoClient.connect('mongodb+srv://user:user123@cluster0.zo1gplg.mongodb.net/?re
     // DB연결 성공하면 할 일
     if (err) return console.log('에러', err,client)
     db = client.db('horizons');
-    
-    console.log('aaa');
+
 });
 
 // message
 // 정보 불러오기
 app.get('/message/list', (req, res) => {
-    console.log('bbb')
     db.collection('message').find().sort({ $natural: -1 }).toArray((err, data) => {
         if (err) return console.log('에러', err)
         if (data) res.json(data)
     });
+});
+// 정보 불러오기
+app.get('/count', (req, res) => {
+    db.collection('count').findOne({ title : "student" }, (err, data)=>{
+        if(data) res.json(data)
+	})
 });
 
 // 새로운 DB 추가하기
@@ -82,11 +86,19 @@ app.get('/message/delete/:id', (req, res) => {
 // student
 // 정보 불러오기
 app.get('/student/list', (req, res) => {
-    db.collection('student').find().sort({ $natural: -1 }).toArray((err, data) => {
+    db.collection('student').find().toArray((err, data) => {
         if (err) return console.log('에러', err)
         if (data) res.json(data)
     });
 });
+
+app.get('/student/list/:id', (req, res) =>{
+    db.collection('student').findOne({ linkTag : req.params.id }, (err, data)=>{
+        if(err) return console.log('에러', err)
+        if(data) res.json(data)
+	})
+});
+
 
 // 새로운 DB 추가하기
 app.post('/student/add', (req, res) => {
@@ -120,7 +132,39 @@ app.post('/student/edit', (req, res) => {
                 studentNumber: req.body.studentNumber,
                 nameOfWork: req.body.nameOfWork,
                 category: req.body.category,
-                linkTag: req.body.linkTag
+                linkTag: req.body.linkTag,
+                detail : {
+                    images: req.body.detail.images,
+                    project:{
+                        ko:{
+                            title:  req.body.detail.project.ko.title,
+                            subTitle:  req.body.detail.project.ko.subTitle,
+                            subscript:  req.body.detail.project.ko.subscript
+                        },
+                        en:{
+                            title:  req.body.detail.project.en.title,
+                            subTitle:  req.body.detail.project.en.subTitle,
+                            subscript:  req.body.detail.project.en.subscript
+                        }
+                    },
+                    profile:{
+                        ko:{
+                            exhibitor:  req.body.detail.profile.ko.exhibitor,
+                            introduce:  req.body.detail.profile.ko.introduce
+                        },
+                        en:{
+                            exhibitor:  req.body.detail.profile.en.exhibitor,
+                            introduce:  req.body.detail.profile.en.introduce
+                        },
+                        sns:{
+                            mail: req.body.detail.profile.sns.mail,
+                            behance:  req.body.detail.profile.sns.behance,
+                            etc: req.body.detail.profile.sns.etc,
+                            instagram: req.body.detail.profile.sns.instagram
+                        }
+                    }
+                }
+
             }
         },
         (err, 결과) => {

@@ -99,12 +99,12 @@
                     <p>생활 환경을 형성하는 모든 요소와 사용자를 복합적으로 고려하는 환경디자인의 큰 틀을 기반으로 한다. 사용자와 환경 의 관계를 이해하고 분석하여 사용자와 환경이 필요로 하는 조건을 조화롭게 반영하여 구성하는 것을 목표로 한다. 공간 자체의 기획 또는 가구 디자인 등 사용자의 생활 환경을 다양한 크기의 영역으로 세분화하여 디자인한다.</p>
                     <div class="section-box">
                         <div>
-                            <b class="horiz">C1 <span class="horiz">(FURNITURE</span></b>
-                            <img :src="require('@/assets/img/pc/main/icon4.svg')">
+                            <b class="horiz">C1 <span class="horiz">(SPACE</span></b>
+                            <img :src="require('@/assets/img/pc/main/icon5.svg')">
                         </div>
                         <div>
-                            <b class="horiz">C2 <span class="horiz">(SPACE</span></b>
-                            <img :src="require('@/assets/img/pc/main/icon5.svg')">
+                            <b class="horiz">C2 <span class="horiz">(FURNITURE</span></b>
+                            <img :src="require('@/assets/img/pc/main/icon4.svg')">
                         </div>
                     </div>
                 </div>

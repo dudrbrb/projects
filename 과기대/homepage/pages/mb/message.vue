@@ -4,9 +4,21 @@
             <ul>
                 <li v-for="(msg, idx) in messageList" :key="`message${idx}`" >
                     <b>{{msg.writer}}</b>
-                    <p>{{msg.message}}
-                        <span>{{msg.date}} / {{msg.time}}</span>
-                    </p>
+                    <div>
+                        <p v-if='recent == msg._id' >
+                            <vue-typer 
+                                :text='msg.message'  
+                                :repeat='0'
+                                :type-delay='180'
+                                :pre-erase-delay='400'
+                            ></vue-typer>
+                        </p>
+                        <p v-else>
+                            {{msg.message}}
+                        </p>
+                        
+                        <span class="time">{{msg.date}} / {{msg.time}}</span>
+                    </div>
                 </li>
             </ul>
         </section>
@@ -47,11 +59,12 @@ $yellow: #F5FF33;
                 border-bottom: 0.5px solid #ffffff80;
                 b{
                     width: 80px;
+                    min-width: 80px;
                     font-size: 16px;
                     line-height: 200%;
                     word-break: break-all;
                 }
-                p{
+                p, &.char{
                     font-size: 16px;
                     line-height: 140%;      
                     margin-bottom: 0;
@@ -59,13 +72,17 @@ $yellow: #F5FF33;
                     height: auto;
                     word-break: break-all
                 }
-                span{
+                span.time{
                     font-size: 14px;
                     margin-top: 5px;
-                }
-                p, span{
-                    width: 100%;
                     display: block;
+                    width: 100%;
+                }
+               
+                span.right, span.caret{
+                    max-height: 0;
+                    opacity: 0;
+                    position: absolute;
                 }
             }
         }
@@ -113,13 +130,29 @@ $yellow: #F5FF33;
         }
 
     }
+
+    .vue-typer span.left{
+        display: inline-block;
+    } 
+    .vue-typer .custom.char{
+        color: #000;
+    }
+    .vue-typer .custom.char.typed {
+        color: #fff;
+    }
+    .vue-typer .custom.caret.selecting {
+    display: inline-block;
+    background-color: #fff;
+    }
 }
 </style>
 
 <script>
+import { VueTyper } from 'vue-typer'
 export default {
     name: 'message',
     layout: 'mobile',
+    components:{VueTyper},
     data(){
         return{
             messageList: null,
@@ -132,6 +165,7 @@ export default {
                 date: null,
                 time: null
             },
+             recent : null,
         }
     },
     created(){
@@ -201,7 +235,7 @@ export default {
                 setTimeout(() => {
                     var list = this.$el.querySelector('#list ul'); 
                     window.scrollTo({ left: 0, top: list.scrollHeight, behavior: "smooth" });
-                
+                    this.recent = datas[datas.length-1]._id;
                 }, 300);
                 
             }).catch((error)=>{
