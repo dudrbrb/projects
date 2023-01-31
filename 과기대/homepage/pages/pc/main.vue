@@ -1,6 +1,11 @@
 <template>
     <div class="container main pc">
-        <section id="video"></section>
+        <section id="video">
+            <iframe src="https://www.youtube.com/embed/SFEyUC_4Yr8" 
+                title="Intro" frameborder="0"  style="width:100%; height: 100%; object-fit: contain;"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+            </iframe>
+        </section>
         <section id="infomation">
             <div class="title">
                 <img :src="require('@/assets/img/pc/main/title1.svg')">
@@ -111,7 +116,7 @@
             </div>
 
         </section>
-        <section id="drectors">
+        <section id="credit">
             <div class="professor">
                 <b>지도 교수</b>
                 <ul>
@@ -239,6 +244,7 @@
                 </ul>
                 <b>도움</b> 
                 <ul>
+                    <li>김성제</li>
                     <li>김승민</li>
                     <li>이래동</li>
                 </ul>
@@ -265,6 +271,9 @@
         width: 100%;
         height: 110vh;
         padding: 0;
+        video{
+            width: 100%;
+        }
     }
     #infomation{
         .title{
@@ -407,7 +416,7 @@
         
         }
     }
-    #drectors{
+    #credit{
         @include flex(space-between, flex-start);
         >div{
             >b{
@@ -495,7 +504,7 @@
         }
         .etc{
             ul{
-                margin-bottom: 122px;
+                margin-bottom: 95px;
                 li{
                     font-weight: bold;
                 }

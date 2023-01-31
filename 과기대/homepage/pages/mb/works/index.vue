@@ -13,7 +13,7 @@
                 <div v-for="(work, idx) in works" :key="`work${idx}`"
                     :class="['work-box', {'hover': selectWork == work.linkTag}]" 
                     @click="clickWork(work.linkTag)"  >
-                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.jpg`)'>
+                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.webp`)'>
 
                     <div class="work-info">
                         <p>{{work.nameOfWork}}</p>
@@ -26,7 +26,7 @@
                   <div v-for="(work, idx) in selecteWorks" :key="`work${idx}`"
                     :class="['work-box', {'hover': selectWork == work.linkTag}]" 
                     @click="clickWork(work.linkTag)" >
-                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.jpg`)'>
+                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.webp`)'>
 
                     <div class="work-info">
                         <p>{{work.nameOfWork}}</p>
@@ -217,7 +217,7 @@ export default {
         },
         clickWork(v){
             if(this.selectWork == v){
-                this.$router.push({ path: '/mb/works/detail', query: {'tag': v} });
+                this.$router.push({ path: `/mb/works/${v}` });
             } else {
                 this.selectWork = v;
             }

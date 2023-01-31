@@ -40,7 +40,13 @@
                 <p :class='["horiz", {open: menu.promotion}]' @click="menu.promotion = !menu.promotion">PROMOTION VIDEO <span class="arrow"></span></p>
             </div>
             <div :class="['contents', {open: menu.promotion}]">
-                <div class="video"></div>
+                <div class="video" style="height: 230px">
+                    <!-- <video :src="require('@/assets/img/pc/main/video.mp4')" type="video/mp4" ref="video" loop playsinline controls :poster="require('@/assets/img/mb/main/thumb.png')"> </video> -->
+                    <iframe src="https://www.youtube.com/embed/51k2T9X_TV0" 
+                        title="Intro" frameborder="0"  style="width:100%; height: 100%; object-fit: contain;"
+                        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
         </section>
@@ -225,7 +231,7 @@
                         </li>
                         <li>
                             <b>도움</b>
-                            <b>김승민 이래동</b>
+                            <b>김성제 김승민 이래동</b>
                         </li>
                     </ul>
                 </div>
@@ -279,8 +285,7 @@
                 padding: 0 15px;
                 img{
                     margin-left: 50%;
-                    transform: translateX(-40%);
-                    width: 230px;
+                    transform: translateX(-45%);
                 }
                 p{
                     font-size: 14px;
@@ -307,8 +312,10 @@
             .contents{
                 .video{
                     width: 100%;
-                    height: 250px;
-                    background-color: #D9D9D9;
+                    video{
+                        width: 100%;
+                        height: auto;
+                    }
                 }
             }
         }

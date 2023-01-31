@@ -36,7 +36,6 @@
             <div class="map-wrapper map2" v-if="nowPlace == 2">
                 <img :src="require('@/assets/img/pc/place/map/2.svg')">
                 <div :class="['spot', 'spot1', {act:( nowPlace== 2 && nowSpot ==1 )}]" @mouseover="nowSpot=1"></div>
-                <div :class="['spot', 'spot2', {act:( nowPlace== 2 && nowSpot ==2 )}]" @mouseover="nowSpot=2"></div>
             </div>
             <div class="map-wrapper map1" v-if="nowPlace == 1">
                 <img :src="require('@/assets/img/pc/place/map/1.svg')">
@@ -136,6 +135,16 @@
             height: 100%;
             position: relative;
             @include flex();
+            transform: scale(1.1);
+            margin-right: 100px;
+            @media (max-width: 1660px) {
+                &{
+                    transform: scale(1);
+                  margin-right: 0;
+                    
+                }
+                
+            }
             img{
                 width: 100%;
                 height: 100%;
@@ -234,9 +243,9 @@ export default {
         changeSpotName(){
             if(this.nowPlace == 1){
                 if(this.nowSpot == 1){
-                     this.spotName = '가구'; this.spotEngName = 'FURNITURE'
-                } else if(this.nowSpot == 2){
                      this.spotName = '포트폴리오'; this.spotEngName = 'PORTFOLIO'
+                } else if(this.nowSpot == 2){
+                     this.spotName = '가구'; this.spotEngName = 'FURNITURE'
                 }
             }
             else if(this.nowPlace == 2){

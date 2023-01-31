@@ -1,6 +1,6 @@
 <template>
     <v-app>
-      <TopNav  v-if="$route.name !== 'pc-intro'"/>
+      <TopNav  v-if="($route.name !== 'pc-intro' ) && ($route.name !== 'pc-intro_fixed_bottom' )"/>
       <Nuxt id="page"/>
       <div class="scroll-up-pc" @click="scrollTop" v-if="$route.name !== 'pc-intro'"></div>
     </v-app>

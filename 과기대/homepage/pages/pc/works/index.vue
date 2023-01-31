@@ -13,8 +13,8 @@
         <section id="works">
             <div class="works-wrapper" v-if="worksSelect.length == 0">
                 <div class="work-box" v-for="(work, idx) in works" :key="`work${idx}`">
-                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.jpg`)'>
-                    <div class="work-info" @click='$router.push({path: `/pc/works/detail`, query: {tag : work.linkTag}})'>
+                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.webp`)'>
+                    <div class="work-info" @click='$router.push({path: `/pc/works/${work.linkTag}`})'>
                         <p>{{work.nameOfWork}}</p>
                         <span>{{work.exhibitor}}</span>
                         <div :class="work.category"></div>
@@ -23,8 +23,8 @@
             </div>
             <div class="works-wrapper" v-else>
                 <div class="work-box" v-for="(work, idx) in worksSelect" :key="`work${idx}`">
-                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.jpg`)'>
-                    <div class="work-info" @click='$router.push({path: `/pc/works/detail`, query: {tag: work.linkTag}})'>
+                    <img :src='require(`@/assets/img/works/thumb/${work.linkTag}.webp`)'>
+                    <div class="work-info" @click='$router.push({path: `/pc/works/${work.linkTag}`})'>
                         <p>{{work.nameOfWork}}</p>
                         <span>{{work.exhibitor}}</span>
                         <div :class="work.category"></div>
@@ -71,10 +71,9 @@
             @include flex(space-between, flex-start);
             flex-wrap: wrap;
             .work-box{
-                width: 19.5%;
-                max-width: 340px;
+                width: 19.4%;
                 background: #D9D9D9;
-                margin: 0.25%;
+                margin: 0.3%;
                 position: relative;
                 cursor: pointer;
                 &:last-child{
@@ -113,6 +112,7 @@
                         display: inline-block;
                         margin-bottom: 8px;
                         text-shadow:0px 0px 0.5px #000;
+                        letter-spacing:-0.3px;
                     }
                     span{
                         font-size: 17px;
@@ -120,6 +120,7 @@
                         line-height: 180%;
                         padding: 0 15px 15px;
                         display: block;
+                        letter-spacing: -0.8px;
                     }
                     div{
                         width: 60px;

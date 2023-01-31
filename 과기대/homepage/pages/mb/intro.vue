@@ -1,8 +1,13 @@
 <template>
     <div class="container intro mb">
         <section class="video-wrapper">
-        <!-- <section class="video-wrapper" @click="$router.push({ path: '/mb/main' });"> -->
-            <video :src="require('@/assets/img/mb/mb.mp4')" type="video/mp4" ref="video" autoplay loop muted playsinline > </video>
+            <!-- <section class="video-wrapper" @click="$router.push({ path: '/mb/main' });"> -->
+            <!-- <video :src="require('@/assets/img/mb/mb.mp4')" type="video/mp4" ref="video" preload="auto"  autoplay muted loop playsinline > </video> -->
+            <!-- <video :src="require('@/assets/img/mb/mb.mp4')" type="video/mp4" ref="video" preload="auto"  autoplay muted loop playsinline > </video> -->
+            <iframe src="https://www.youtube.com/embed/POfZw7Hy-0E?autoplay=1&loop=1&controls=0" 
+                title="Intro" frameborder="0"  style="width:100%; height: 100%; object-fit: contain;"
+                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+            </iframe>
         </section>
 
     </div>
@@ -37,9 +42,14 @@ export default {
         }
     },
     mounted(){
-
+        // this.playVideo()
     },
     methods:{
+        // playVideo(){
+        //     var video = this.$el.querySelector('video');
+        //     video.play();
+            
+        // }
     }
 }
 </script>

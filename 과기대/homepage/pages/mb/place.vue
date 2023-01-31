@@ -38,7 +38,6 @@
             <div class="map-wrapper map2" v-if="nowPlace == 2">
                 <img :src="require('@/assets/img/pc/place/map/2.svg')">
                 <div :class="['spot', 'spot1', {act:( nowPlace== 2 && nowSpot ==1 )}]" @mouseover="nowSpot=1"></div>
-                <div :class="['spot', 'spot2', {act:( nowPlace== 2 && nowSpot ==2 )}]" @mouseover="nowSpot=2"></div>
             </div>
             <div class="map-wrapper map1" v-if="nowPlace == 1">
                 <img :src="require('@/assets/img/pc/place/map/1.svg')">
